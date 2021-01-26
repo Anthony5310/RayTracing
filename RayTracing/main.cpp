@@ -4,26 +4,9 @@
 
 int main(int argc, char** argv)
 {
-	RGBQUAD color;
-	FIBITMAP* image;
-	image = FreeImage_Allocate(256, 256, 32); 
-
-
-
-	color.rgbGreen = 0;
-	for (size_t i = 0; i < 640; i++)
-	{
-		color.rgbRed = i;
-
-		for (size_t j = 0; j < 480; j++)
-		{
-			color.rgbBlue = j;
-
-			FreeImage_SetPixelColor(image, i, j, &color);
-		}
-	}
-
-	FreeImage_Save(FIF_BMP, image, "out.bmp");
+	Vector3D v1(1, 2, 3);
+	v1.display();
+	std::cout << v1.norm() << std::endl;
 
 	return EXIT_SUCCESS;
 }
