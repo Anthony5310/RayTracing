@@ -12,6 +12,7 @@ public:
 	void display(void);
 	float norm(void);
 	Vector3D operator+ (Vector3D p_vector);
+	Vector3D operator* (Vector3D p_vector);
 };
 
 #endif

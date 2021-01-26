@@ -19,3 +19,7 @@ float Vector3D::norm(void)
 Vector3D Vector3D::operator+ (Vector3D p_vector) {
 	return Vector3D(p_vector.x + x, p_vector.y + y, p_vector.z + z);
 }
+
+Vector3D Vector3D::operator* (Vector3D p_vector) {
+	return Vector3D(p_vector.x * x, p_vector.y * y, p_vector.z * z);
+}
