@@ -1,11 +1,13 @@
 #include <iostream>
 #include "FreeImage.h"
+#include "Vector3D.h"
 
 int main(int argc, char** argv)
 {
 	RGBQUAD color;
 	FIBITMAP* image;
-	image = FreeImage_Allocate(256, 256, 32);
+	image = FreeImage_Allocate(256, 256, 32); 
+
 
 
 	color.rgbGreen = 0;
