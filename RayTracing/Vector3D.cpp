@@ -15,3 +15,7 @@ float Vector3D::norm(void)
 {
 	return sqrtf(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
 }
+
+Vector3D Vector3D::operator+ (Vector3D p_vector) {
+	return Vector3D(p_vector.x + x, p_vector.y + y, p_vector.z + z);
+}
