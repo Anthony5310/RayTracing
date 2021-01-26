@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\git_workspace\RayTracing\RayTracing\RayTracing\main.cpp(14,19): warning C4267: '=' : conversion de 'size_t' en 'BYTE', perte possible de données
+C:\git_workspace\RayTracing\RayTracing\RayTracing\main.cpp(18,21): warning C4267: '=' : conversion de 'size_t' en 'BYTE', perte possible de données
+  RayTracing.vcxproj -> C:\git_workspace\RayTracing\RayTracing\bin\RayTracing_d.exe
