@@ -16,10 +16,31 @@ float Vector3D::norm(void)
 	return sqrtf(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
 }
 
+void Vector3D::normalize(void) 
+{
+	float norm = this->norm();
+	x = x / norm;
+	y = y / norm;
+	z = z / norm;
+}
+
 Vector3D Vector3D::operator+ (Vector3D p_vector) {
-	return Vector3D(p_vector.x + x, p_vector.y + y, p_vector.z + z);
+	return Vector3D(
+		p_vector.x + x, 
+		p_vector.y + y, 
+		p_vector.z + z);
 }
 
 Vector3D Vector3D::operator* (Vector3D p_vector) {
-	return Vector3D(p_vector.x * x, p_vector.y * y, p_vector.z * z);
+	return Vector3D(
+		p_vector.x * x, 
+		p_vector.y * y, 
+		p_vector.z * z);
+}
+
+Vector3D Vector3D::operator^ (Vector3D p_vector) {
+	return Vector3D(
+		p_vector.z * y - p_vector.y * z,
+		p_vector.x * z - p_vector.z * x,
+		p_vector.y * x - p_vector.x * y);
 }

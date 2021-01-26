@@ -1,5 +1,2 @@
-﻿  Vector3D.cpp
-C:\git_workspace\RayTracing\RayTracing\Vector3D.cpp(16,49): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
-  main.cpp
-  Génération de code en cours...
+﻿  main.cpp
   RayTracing.vcxproj -> C:\git_workspace\RayTracing\bin\RayTracing_d.exe
