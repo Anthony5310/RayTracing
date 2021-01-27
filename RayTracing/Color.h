@@ -1,5 +1,5 @@
-#ifndef _VECTOR3D_H_
-#define _VECTOR3D_H_
+#ifndef _COLOR_H_
+#define _COLOR_H_
 #include <iostream>
 
 class Color
