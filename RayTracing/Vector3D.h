@@ -8,6 +8,7 @@ class Vector3D
 public:
 	float x, y, z;
 
+	Vector3D(void);
 	Vector3D(float p_x, float p_y, float p_z);
 	void display(void);
 	float norm(void);
