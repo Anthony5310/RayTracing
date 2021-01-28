@@ -5,6 +5,7 @@
 
 class Camera
 {
+public:
 	Vector3D pos;
 	Vector3D dir;
 	float cam_width, cam_height; //Camera size

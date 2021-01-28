@@ -1,12 +1,11 @@
 #ifndef _INTERSECTION_H_
 #define _INTERSECTION_H_
-#include "Ray.h"
-#include "Scene.h"
-#include "Vector3D.h"
+#include <iostream>
 
-class Intersection
+class Intersection 
 {
 public:
-	static bool touch();
-}
-#endif
+	Intersection(void);
+	static void touch(void);
+};
+#endif // !_INTERSECTION_H_

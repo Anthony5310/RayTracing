@@ -3,6 +3,10 @@
 #include <iostream>
 #include "Vector3D.h"
 #include "Camera.h"
+#include "Ray.h"
+#include "Sphere.h"
+#include "Intersection.h"
+#include "Color.h"
 
 class Scene
 {

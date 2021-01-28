@@ -1,6 +1,6 @@
 #include <iostream>
 #include "FreeImage.h"
-#include "Vector3D.h"
+#include "Scene.h"
 
 int main(int argc, char** argv)
 {
@@ -10,6 +10,7 @@ int main(int argc, char** argv)
 	v1.normalize();
 	v1.display();
 	std::cout << v1.norm() << std::endl;
+	Intersection::touch();
 
 	return EXIT_SUCCESS;
 }
