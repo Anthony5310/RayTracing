@@ -7,6 +7,6 @@
 class Intersection
 {
 public:
-	static bool touch()
+	static bool touch();
 }
 #endif

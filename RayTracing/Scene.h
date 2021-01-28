@@ -2,16 +2,16 @@
 #define _SCENE_H_
 #include <iostream>
 #include "Vector3D.h"
+#include "Camera.h"
 
 class Scene
 {
 public:
-	float width, height; //Camera size
-	float format; //ex: 16:9 | ex: width = format * height
+	Camera camera;
+	//Liste d'objets
+	//Liste de lumière
 
 	Scene(void);
-	Scene(float p_width, float p_height);
-	Scene(float p_height, float p_format);
 };
 
 #endif
