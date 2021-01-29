@@ -4,13 +4,18 @@
 
 int main(int argc, char** argv)
 {
-	Camera camera;
-	unsigned int i, j;
-	for (i = 0; i < camera.img_width; i++) {
-		for (j = 0; j < camera.img_height; j++) {
-			camera.traceRay(i, j);
-			if (!j)
-				camera.ray.display();
+	Scene scene;
+	scene.addObject(Sphere());
+	unsigned int i, j, k;
+	for (i = 0; i < scene.camera.img_width; i++) 
+	{
+		for (j = 0; j < scene.camera.img_height; j++) 
+		{
+			scene.camera.traceRay(i, j);
+			for (k = 0; j < scene.nbObjects; k++) //foreach objects of the scene
+			{
+
+			}
 		}
 	}
 	return EXIT_SUCCESS;
