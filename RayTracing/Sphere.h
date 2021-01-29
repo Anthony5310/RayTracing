@@ -13,6 +13,9 @@ public:
 
 	Sphere();
 	Sphere(Vector3D p_position, float p_radius, Color p_color);
+	void type() {
+		std::cout << "Sphere" << std::endl;
+	}
 };
 
 #endif

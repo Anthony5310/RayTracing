@@ -13,8 +13,8 @@ public:
 	void display(void);
 	float norm(void);
 	void normalize(void);
-	float scalarProduct(Vector3D p_vector1, Vector3D p_vector2);
-	float scalarProduct(Vector3D p_vector1, float p_scalar);
+	float scalarProduct(Vector3D p_vector);
+	float scalarProduct(float p_scalar);
 	Vector3D operator+ (Vector3D p_vector);
 	Vector3D operator- (Vector3D p_vector);
 	//Produit scalaire

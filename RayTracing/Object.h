@@ -10,5 +10,8 @@ public:
 	Vector3D rotation;
 
 	Object();
+	virtual void type() {
+		std::cout << "Object" << std::endl;
+	}
 };
 #endif

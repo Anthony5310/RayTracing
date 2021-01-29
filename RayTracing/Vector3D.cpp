@@ -28,14 +28,14 @@ void Vector3D::normalize(void)
 	z = z / norm;
 }
 
-float Vector3D::scalarProduct(Vector3D p_vector1, Vector3D p_vector2)
+float Vector3D::scalarProduct(Vector3D p_vector)
 {
-	return (p_vector1.x * p_vector2.x + p_vector1.y * p_vector2.y + p_vector1.z * p_vector2.z);
+	return (this->x * p_vector.x + this->y * p_vector.y + this->z * p_vector.z);
 }
 
-float Vector3D::scalarProduct(Vector3D p_vector1, float p_scalar)
+float Vector3D::scalarProduct(float p_scalar)
 {
-	return (p_vector1.x * p_scalar + p_vector1.y * p_scalar + p_vector1.z * p_scalar);
+	return (this->x * p_scalar + this->y * p_scalar + this->z * p_scalar);
 }
 
 Vector3D Vector3D::operator+ (Vector3D p_vector) {

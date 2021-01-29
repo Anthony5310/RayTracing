@@ -16,11 +16,12 @@ public:
 	Camera camera;
 	//Liste d'objets
 	unsigned int nbObjects;
-	std::vector<Object> objects;
+	std::vector<Object*> objects;
 	//Liste de lumière
 
 	Scene(void);
-	void addObject(Object p_object);
+	~Scene(void);
+	void addObject(Object* p_object);
 };
 
 #endif
