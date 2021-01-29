@@ -1,2 +1,13 @@
-﻿  main.cpp
+﻿  Camera.cpp
+C:\git_workspace\RayTracing\RayTracing\Camera.cpp(12,12): warning C4305: '=' : troncation de 'double' à 'float'
+  main.cpp
+  Ray.cpp
+  Scene.cpp
+  Sphere.cpp
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,26): warning C4309: 'argument' : troncation de valeur de constante
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,21): warning C4309: 'argument' : troncation de valeur de constante
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,16): warning C4309: 'argument' : troncation de valeur de constante
+  Vector3D.cpp
+C:\git_workspace\RayTracing\RayTracing\Vector3D.cpp(20,49): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+  Génération de code en cours...
   RayTracing.vcxproj -> C:\git_workspace\RayTracing\bin\RayTracing_d.exe

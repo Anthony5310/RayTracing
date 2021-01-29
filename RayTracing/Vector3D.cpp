@@ -35,11 +35,25 @@ Vector3D Vector3D::operator+ (Vector3D p_vector) {
 		p_vector.z + z);
 }
 
+Vector3D Vector3D::operator- (Vector3D p_vector) {
+	return Vector3D(
+		p_vector.x - x,
+		p_vector.y - y,
+		p_vector.z - z);
+}
+
 Vector3D Vector3D::operator* (Vector3D p_vector) {
 	return Vector3D(
 		p_vector.x * x, 
 		p_vector.y * y, 
 		p_vector.z * z);
+}
+
+Vector3D Vector3D::operator* (float p_scalar) {
+	return Vector3D(
+		p_scalar * x,
+		p_scalar * y,
+		p_scalar * z);
 }
 
 Vector3D Vector3D::operator^ (Vector3D p_vector) {
