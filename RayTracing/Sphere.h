@@ -1,18 +1,18 @@
 #ifndef _SPHERE_H_
 #define _SPHERE_H_
 #include <iostream>
+#include "Object.h"
 #include "Vector3D.h"
 #include "Color.h"
 
-class Sphere
+class Sphere : public Object
 {
 public:
-	Vector3D center;
 	float radius;
 	Color color;
 
 	Sphere();
-	Sphere(Vector3D p_center, float p_radius, Color p_color);
+	Sphere(Vector3D p_position, float p_radius, Color p_color);
 };
 
 #endif

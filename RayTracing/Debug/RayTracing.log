@@ -1,3 +1,8 @@
-﻿  Vector3D.cpp
-C:\git_workspace\RayTracing\RayTracing\Vector3D.cpp(20,49): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+﻿  Scene.cpp
+  Sphere.cpp
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,26): warning C4309: 'argument' : troncation de valeur de constante
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,21): warning C4309: 'argument' : troncation de valeur de constante
+C:\git_workspace\RayTracing\RayTracing\Sphere.cpp(7,16): warning C4309: 'argument' : troncation de valeur de constante
+  main.cpp
+  Génération de code en cours...
   RayTracing.vcxproj -> C:\git_workspace\RayTracing\bin\RayTracing_d.exe

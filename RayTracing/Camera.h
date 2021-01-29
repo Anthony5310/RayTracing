@@ -7,8 +7,8 @@
 class Camera
 {
 public:
-	Vector3D pos;
-	Vector3D dir;
+	Vector3D position;
+	Vector3D direction;
 	Vector3D upLeftCorner;
 	Ray ray;
 	float cam_width, cam_height; //Camera size

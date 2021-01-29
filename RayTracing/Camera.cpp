@@ -2,8 +2,8 @@
 
 Camera::Camera(void)
 {
-	pos = Vector3D(0, 0, 0);
-	dir = Vector3D(0, 0, -1);
+	position = Vector3D(0, 0, 0);
+	direction = Vector3D(0, 0, -1);
 	ray = Ray();
 	img_height = 360;
 	img_width = 480;
@@ -16,10 +16,10 @@ Camera::Camera(void)
 	setUpLeftCorner();
 }
 
-Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_focal, float p_near, float p_far, Vector3D p_pos)
+Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_focal, float p_near, float p_far, Vector3D p_position)
 {
-	pos = p_pos;
-	dir = Vector3D(0, 0, -1);
+	position = p_position;
+	direction = Vector3D(0, 0, -1);
 	ray = Ray();
 	img_height = p_img_height;
 	img_width = p_format * p_img_height;
@@ -32,7 +32,7 @@ Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_f
 }
 
 void Camera::setUpLeftCorner(void) {
-	upLeftCorner = this->pos - Vector3D(cam_width / 2, -cam_height / 2, focal);
+	upLeftCorner = this->position - Vector3D(cam_width / 2, -cam_height / 2, focal);
 }
 
 void Camera::traceRay(unsigned int i, unsigned int j) {
@@ -42,7 +42,7 @@ void Camera::traceRay(unsigned int i, unsigned int j) {
 	verticalDir.normalize();
 	float u = (float)i / (img_width - 1);
 	float v = (float)j / (img_height - 1);
-	this->ray.setPos(this->pos);
-	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) - (verticalDir * u) - this->pos);
+	this->ray.setPos(this->position);
+	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) - (verticalDir * u) - this->position);
 
 }

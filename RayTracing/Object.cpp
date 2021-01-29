@@ -3,5 +3,4 @@
 Object::Object(void) :
 	position(Vector3D(0, 0, 0)), rotation(Vector3D(0, 0, 0))
 {
-
 }
