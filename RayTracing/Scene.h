@@ -17,6 +17,7 @@ public:
 	//Liste d'objets
 	unsigned int nbObjects;
 	std::vector<Object*> objects;
+	std::vector<Intersection*> intersections;
 	//Liste de lumière
 
 	Scene(void);

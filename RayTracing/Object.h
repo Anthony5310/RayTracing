@@ -13,6 +13,7 @@ public:
 	Vector3D rotation;
 
 	Object();
-	virtual std::vector<Intersection> intersections(Ray& p_ray);
+	~Object();
+	virtual std::vector<Intersection*> intersections(Ray& p_ray)=0;
 };
 #endif

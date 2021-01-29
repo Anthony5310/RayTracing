@@ -5,6 +5,11 @@ Object::Object(void) :
 {
 }
 
-std::vector<Intersection> Object::intersections(Ray& p_ray) 
+Object::~Object(void)
 {
+}
+
+std::vector<Intersection*> Object::intersections(Ray& p_ray) 
+{
+	return std::vector<Intersection*>();
 }

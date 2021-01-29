@@ -17,7 +17,7 @@ void Ray::setPos(Vector3D p_pos)
 
 void Ray::setDir(Vector3D p_dir)
 {
-	pos = p_dir;
+	dir = p_dir;
 }
 
 void Ray::display(void) {

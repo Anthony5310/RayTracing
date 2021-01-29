@@ -2,8 +2,6 @@
 #define _INTERSECTION_H_
 #include <iostream>
 #include "Vector3D.h"
-#include "Ray.h"
-#include "Sphere.h"
 
 class Intersection 
 {

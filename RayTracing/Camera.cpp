@@ -11,7 +11,7 @@ Camera::Camera(void)
 	cam_width = 2.0;
 	near = 0.3;
 	far = 100.0;
-	format = 16 / 9;
+	format = 4 / 3;
 	focal = 1;
 	setUpLeftCorner();
 }
@@ -43,6 +43,6 @@ void Camera::traceRay(unsigned int i, unsigned int j) {
 	float u = (float)i / (img_width - 1);
 	float v = (float)j / (img_height - 1);
 	this->ray.setPos(this->position);
-	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) - (verticalDir * u) - this->position);
-
+	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) - (verticalDir * v) - this->position);
+	this->ray.display();
 }

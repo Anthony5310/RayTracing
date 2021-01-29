@@ -1,1 +1,3 @@
-﻿  RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe
+﻿  Camera.cpp
+D:\git_workspace\RayTracing\RayTracing\Camera.cpp(12,12): warning C4305: '=' : troncation de 'double' à 'float'
+  RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe
