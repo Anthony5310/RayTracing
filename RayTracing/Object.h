@@ -1,7 +1,10 @@
 #ifndef _OBJECT_H_
 #define _OBJECT_H_
 #include <iostream>
+#include <vector>
 #include "Vector3D.h"
+#include "Ray.h"
+#include "Intersection.h"
 
 class Object
 {
@@ -10,8 +13,6 @@ public:
 	Vector3D rotation;
 
 	Object();
-	virtual void type() {
-		std::cout << "Object" << std::endl;
-	}
+	virtual std::vector<Intersection> intersections(Ray& p_ray);
 };
 #endif

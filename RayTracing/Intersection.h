@@ -8,8 +8,8 @@
 class Intersection 
 {
 public:
+	Vector3D position;
 	Intersection(void);
-	static bool touch(Ray& p_ray, Object* p_object);
 };
 
 #endif
