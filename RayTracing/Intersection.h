@@ -10,6 +10,7 @@ class Intersection
 public:
 	Vector3D position;
 	Intersection(void);
+	Intersection(Vector3D p_position);
 };
 
 #endif
