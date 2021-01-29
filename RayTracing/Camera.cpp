@@ -14,7 +14,6 @@ Camera::Camera(void)
 	format = 16 / 9;
 	focal = 1;
 	setUpLeftCorner();
-	upLeftCorner.display();
 }
 
 Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_focal, float p_near, float p_far, Vector3D p_pos)
@@ -35,6 +34,7 @@ Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_f
 void Camera::setUpLeftCorner(void) {
 	upLeftCorner = this->pos - Vector3D(cam_width / 2, -cam_height / 2, focal);
 }
+
 void Camera::traceRay(unsigned int i, unsigned int j) {
 	Vector3D horizontalDir(this->cam_width, 0, 0);
 	Vector3D verticalDir(0, this->cam_height, 0);

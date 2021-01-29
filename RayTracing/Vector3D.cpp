@@ -37,9 +37,9 @@ Vector3D Vector3D::operator+ (Vector3D p_vector) {
 
 Vector3D Vector3D::operator- (Vector3D p_vector) {
 	return Vector3D(
-		p_vector.x - x,
-		p_vector.y - y,
-		p_vector.z - z);
+		x - p_vector.x,
+		y - p_vector.y,
+		z - p_vector.z);
 }
 
 Vector3D Vector3D::operator* (Vector3D p_vector) {
