@@ -66,7 +66,7 @@ Intersection* Scene::intersection(void)
 
 bool Scene::shadow(Intersection* p_intersection)
 {
-	Ray secondRay(p_intersection->position+0.01, (this->lights[0]->position - p_intersection->position).getNormalize());
+	Ray secondRay(p_intersection->position+p_intersection->normal*0.01, (this->lights[0]->position - p_intersection->position).getNormalize());
 	this->camera.ray = secondRay;
 	Intersection* intersection = this->intersection();	
 	float d = (this->lights[0]->position - p_intersection->position).norm();

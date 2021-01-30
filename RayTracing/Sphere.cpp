@@ -67,7 +67,7 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 	float spec = pow(std::max(V.scalarProduct(R), 0.0f), 32);
 	Vector3D specular = p_lights[0]->color * (0.5 * spec);
 
-	Vector3D totalLight = (ambiant) * this->color;
+	Vector3D totalLight = (ambiant + diffuse) * this->color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 
