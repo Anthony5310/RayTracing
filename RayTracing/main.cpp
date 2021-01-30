@@ -20,14 +20,16 @@ int main(int argc, char** argv)
 			scene.camera.traceRay(i, j);
 			for (k = 0; k < scene.nbObjects; k++) //foreach objects of the scene
 			{
-				if (!scene.objects[k]->intersections(scene.camera.ray).empty())
+				Intersection* intersection = scene.objects[k]->intersection(scene.camera.ray);
+				if (intersection)
 				{
+					scene.camera.ray.intersections.push_back(intersection);
 					color.rgbRed = 255;
 					color.rgbGreen = 255;
 					color.rgbBlue = 255;
-					//std::cout << "Intersection : (" << i << ", " << j << ")" << std::endl;
 				}
-				else {
+				else 
+				{
 					color.rgbRed = 110;
 					color.rgbGreen = 110;
 					color.rgbBlue = 110;

@@ -4,7 +4,7 @@
 #include <vector>
 #include "Vector3D.h"
 #include "Ray.h"
-#include "Intersection.h"
+#include "Color.h"
 
 class Object
 {
@@ -14,6 +14,5 @@ public:
 
 	Object();
 	~Object();
-	virtual std::vector<Intersection*> intersections(Ray& p_ray)=0;
 };
 #endif

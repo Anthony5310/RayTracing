@@ -9,6 +9,7 @@
 #include "Intersection.h"
 #include "Color.h"
 #include "Object.h"
+#include "PrimitiveObject.h"
 #include "Light.h"
 
 class Scene
@@ -18,15 +19,14 @@ public:
 	//Liste d'objets
 	unsigned int nbObjects;
 	unsigned int nbLights;
-	std::vector<Object*> objects;
-	std::vector<Intersection*> intersections;
+	std::vector<PrimitiveObject*> objects;
 	std::vector<Light*> lights;
 	//Liste de lumière
 
 	Scene(void);
 	Scene(float p_img_height, float p_format);
 	~Scene(void);
-	void addObject(Object* p_object);
+	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
 };
 

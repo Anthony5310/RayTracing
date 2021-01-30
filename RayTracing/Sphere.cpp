@@ -1,7 +1,7 @@
 #include "Sphere.h"
 
 Sphere::Sphere(void):
-	Object()
+	PrimitiveObject()
 {
 	position = Vector3D(0.0f, 0.0f, 0.0f);
 	std::cout << "here\n";
@@ -10,7 +10,7 @@ Sphere::Sphere(void):
 }
 
 Sphere::Sphere(Vector3D p_position, float p_radius, Color p_color):
-	Object()
+	PrimitiveObject()
 {
 	this->position = p_position;
 	this->color = p_color;
@@ -23,10 +23,9 @@ Sphere::Sphere(Vector3D p_position, float p_radius, Color p_color):
 	}
 }
 
-std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
+Intersection* Sphere::intersection(Ray& p_ray)
 {
-	std::vector<Intersection*> list;
-	list.clear();
+	Intersection* intersection = NULL;
 	Vector3D dist = p_ray.pos - this->position;
 	//Calcul of discriminant (d), d = b²-4ac
 	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
@@ -36,10 +35,9 @@ std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
 	if (d == 0) { //Only one intersection
 		float t = -b / 2 * a;
 
-		Intersection* intersection = new Intersection();
+		intersection = new Intersection();
 		intersection->position = p_ray.pos + p_ray.dir * t;
 		intersection->normal = (intersection->position - this->position);
-		list.push_back(intersection);
 	}
 	else if (d > 0) { //Two intersections, ray passes through the sphere
 		float dSqrt = sqrt(d);
@@ -47,11 +45,10 @@ std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
 		float t2 = (-b + dSqrt) / 2 * a;
 		float t = std::max(t1,t2);
 		if (t > 0) {
-			Intersection* intersection = new Intersection();
+			intersection = new Intersection();
 			intersection->position = p_ray.pos + p_ray.dir * t;
 			intersection->normal = (intersection->position - this->position);
-			list.push_back(intersection);
 		}
 	}
-	return list;
+	return intersection;
 }

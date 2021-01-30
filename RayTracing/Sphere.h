@@ -2,10 +2,10 @@
 #define _SPHERE_H_
 #include <iostream>
 #include <cmath>
-#include "Object.h"
+#include "PrimitiveObject.h"
 #include "Color.h"
 
-class Sphere : public Object
+class Sphere : public PrimitiveObject
 {
 public:
 	float radius;
@@ -13,7 +13,7 @@ public:
 
 	Sphere(void);
 	Sphere(Vector3D p_position, float p_radius, Color p_color);
-	std::vector<Intersection*> intersections(Ray& p_ray);
+	Intersection* intersection(Ray& p_ray);
 };
 
 #endif

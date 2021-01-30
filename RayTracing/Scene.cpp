@@ -24,15 +24,10 @@ Scene::~Scene(void)
 	for (i = 0; i < this->nbLights; i++) {
 		delete this->lights[i];
 	}
-
-	unsigned int nbIntersections = intersections.size();
-	for (i = 0; i < nbIntersections; i++) {
-		delete this->intersections[i];
-	}
 }
 
 
-void Scene::addObject(Object* p_object) 
+void Scene::addObject(PrimitiveObject* p_object)
 {
 	this->objects.push_back(p_object);
 	this->nbObjects++;
