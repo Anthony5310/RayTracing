@@ -59,7 +59,19 @@ Intersection* Scene::intersection(void)
 		Vector3D posIntersection = camera.ray.pos + camera.ray.dir * tMin;
 		Vector3D normale = posIntersection - this->objects[objectId]->position;
 		normale.normalize();
-		intersection = new Intersection(posIntersection, normale, objectId);
+		intersection = new Intersection(posIntersection, normale, objectId, tMin);
 	}
 	return intersection;
+}
+
+bool Scene::shadow(Intersection* p_intersection)
+{
+	Ray secondRay(p_intersection->position+0.01, (this->lights[0]->position - p_intersection->position).getNormalize());
+	this->camera.ray = secondRay;
+	Intersection* intersection = this->intersection();	
+	float d = (this->lights[0]->position - p_intersection->position).norm();
+	if (intersection && intersection->t * intersection->t < d * d) {
+		return true;
+	}
+	return false;
 }

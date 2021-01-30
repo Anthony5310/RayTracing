@@ -14,9 +14,11 @@ public:
 	void display(void);
 	float norm(void);
 	void normalize(void);
+	Vector3D getNormalize(void);
 	float scalarProduct(Vector3D p_vector);
 	float scalarProduct(float p_scalar);
 	Vector3D operator+ (Vector3D p_vector);
+	Vector3D operator+ (float p_scalar);
 	Vector3D operator- (Vector3D p_vector);
 	//Produit scalaire
 	Vector3D operator* (Vector3D p_vector);

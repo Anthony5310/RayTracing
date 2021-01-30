@@ -1,7 +1,7 @@
-﻿  Sphere.cpp
-D:\git_workspace\RayTracing\RayTracing\Sphere.cpp(9,26): warning C4309: 'argument' : troncation de valeur de constante
-D:\git_workspace\RayTracing\RayTracing\Sphere.cpp(9,21): warning C4309: 'argument' : troncation de valeur de constante
-D:\git_workspace\RayTracing\RayTracing\Sphere.cpp(9,16): warning C4309: 'argument' : troncation de valeur de constante
-D:\git_workspace\RayTracing\RayTracing\Sphere.cpp(31,10): warning C4244: 'initialisation' : conversion de 'double' en 'float', perte possible de données
-D:\git_workspace\RayTracing\RayTracing\Sphere.cpp(68,48): warning C4244: 'argument' : conversion de 'double' en 'float', perte possible de données
+﻿  main.cpp
+D:\git_workspace\RayTracing\RayTracing\main.cpp(9,27): warning C4305: 'argument' : troncation de 'double' à 'float'
+D:\git_workspace\RayTracing\RayTracing\main.cpp(11,69): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(11,64): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(17,21): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\main.cpp(18,22): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
   RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe

@@ -29,6 +29,7 @@ public:
 	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
 	Intersection* intersection(void);
+	bool shadow(Intersection* p_intersection);
 };
 
 #endif

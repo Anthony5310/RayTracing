@@ -28,6 +28,13 @@ void Vector3D::normalize(void)
 	z = z / norm;
 }
 
+Vector3D Vector3D::getNormalize(void)
+{
+	Vector3D result(*this);
+	result.normalize();
+	return result;
+}
+
 float Vector3D::scalarProduct(Vector3D p_vector)
 {
 	return (this->x * p_vector.x + this->y * p_vector.y + this->z * p_vector.z);
@@ -43,6 +50,14 @@ Vector3D Vector3D::operator+ (Vector3D p_vector) {
 		p_vector.x + x, 
 		p_vector.y + y, 
 		p_vector.z + z);
+}
+
+Vector3D Vector3D::operator+ (float p_scalar)
+{
+	return Vector3D(
+		p_scalar + x,
+		p_scalar + y,
+		p_scalar + z);
 }
 
 Vector3D Vector3D::operator- (Vector3D p_vector) {
