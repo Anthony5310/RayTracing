@@ -23,47 +23,36 @@ Sphere::Sphere(Vector3D p_position, float p_radius, Color p_color):
 	}
 }
 
-Intersection* Sphere::intersection(Ray& p_ray)
+float Sphere::intersection(Ray& p_ray)
 {
-	Intersection* intersection = NULL;
 	Vector3D dist = p_ray.pos - this->position;
 	//Calcul of discriminant (d), d = b²-4ac
 	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
 	float b = 2.0 * dist.scalarProduct(p_ray.dir);
 	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;
+	float t = -1.0f;
 	if (d == 0) { //Only one intersection
-		float t = -b / 2 * a;
-
-		intersection = new Intersection();
-		intersection->position = p_ray.pos + p_ray.dir * t;
-		intersection->normal = (intersection->position - this->position);
+		t = -b / 2 * a;
 	}
 	else if (d > 0) { //Two intersections, ray passes through the sphere
 		float dSqrt = sqrt(d);
 		float t1 = (-b - dSqrt) / 2 * a;
 		float t2 = (-b + dSqrt) / 2 * a;
-		float t;
 		if (t1 > 0) {
 			t = t1;
 		}
 		else {
 			t = t2;
 		}
-		if (t > 0) 
-		{
-			intersection = new Intersection();
-			intersection->position = p_ray.pos + p_ray.dir * t;
-			intersection->normal = (intersection->position - this->position);
-		}
 	}
-	return intersection;
+	return t;
 }
 
 Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)
 {
 	//ambiant
-	Vector3D ambiant = p_lights[0]->color * 0.1;
+	Vector3D ambiant = p_lights[0]->color;
 
 	//diffuse
 	Vector3D L = p_lights[0]->position - p_intersection.position;
@@ -78,7 +67,7 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 	float spec = pow(std::max(V.scalarProduct(R), 0.0f), 32);
 	Vector3D specular = p_lights[0]->color * (0.5 * spec);
 
-	Vector3D totalLight = (ambiant + diffuse + specular) * this->color;
+	Vector3D totalLight = (ambiant) * this->color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 

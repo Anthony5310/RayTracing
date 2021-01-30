@@ -8,9 +8,11 @@ class Intersection
 public:
 	Vector3D position;
 	Vector3D normal;
+	int objectId;
 
 	Intersection(void);
-	Intersection(Vector3D p_position, Vector3D p_normal);
+	Intersection(Vector3D p_position, Vector3D p_normal, int p_objectId);
+	~Intersection(void);
 };
 
 #endif

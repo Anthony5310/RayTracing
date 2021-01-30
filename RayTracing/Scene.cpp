@@ -38,3 +38,28 @@ void Scene::addLight(Light* p_light)
 	this->lights.push_back(p_light);
 	this->nbLights++;
 }
+
+Intersection* Scene::intersection(void)
+{
+	unsigned int i;
+	float tMin = 100000.0f;
+	float tCurrent;
+	int objectId=-1;
+	Intersection* intersection = NULL;
+	for (i = 0; i < this->nbObjects; i++) {
+		tCurrent = this->objects[i]->intersection(camera.ray);
+		if (tCurrent > 0 && tCurrent < tMin)
+		{
+			tMin = tCurrent;
+			objectId = i;
+		}
+	}
+	if (objectId >= 0)
+	{
+		Vector3D posIntersection = camera.ray.pos + camera.ray.dir * tMin;
+		Vector3D normale = posIntersection - this->objects[objectId]->position;
+		normale.normalize();
+		intersection = new Intersection(posIntersection, normale, objectId);
+	}
+	return intersection;
+}

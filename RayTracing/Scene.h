@@ -28,6 +28,7 @@ public:
 	~Scene(void);
 	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
+	Intersection* intersection(void);
 };
 
 #endif
