@@ -31,11 +31,12 @@ std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
 	//Calcul of discriminant (d), d = b²-4ac
 	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
 	float b = 2.0 * dist.scalarProduct(p_ray.dir);
-	float c = dist.scalarProduct(dist) - radius * radius;
+	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;
 	if (d == 0) { //Only one intersection
 		float t = -b / 2 * a;
 		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t));
+		std::cout << "1 intersection" << std::endl;
 	}
 	else if (d > 0) { //Two intersections, ray passes through the sphere
 		float dSqrt = sqrt(d);
@@ -43,6 +44,7 @@ std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
 		float t2 = (-b + dSqrt) / 2 * a;
 		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t1));
 		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t2));
+		//std::cout << "2 intersections" << std::endl;
 	}
 	return list;
 }

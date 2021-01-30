@@ -11,8 +11,8 @@ Camera::Camera(void)
 	cam_width = 2.0;
 	near = 0.3;
 	far = 100.0;
-	format = 4 / 3;
-	focal = 1;
+	format = 4.0 / 3.0;
+	focal = 1.0;
 	setUpLeftCorner();
 }
 
@@ -29,6 +29,7 @@ Camera::Camera(float p_img_height, float p_cam_height, float p_format, float p_f
 	far = p_far;
 	format = p_format;
 	focal = p_focal;
+	setUpLeftCorner();
 }
 
 void Camera::setUpLeftCorner(void) {
@@ -37,12 +38,10 @@ void Camera::setUpLeftCorner(void) {
 
 void Camera::traceRay(unsigned int i, unsigned int j) {
 	Vector3D horizontalDir(this->cam_width, 0, 0);
-	Vector3D verticalDir(0, this->cam_height, 0);
-	horizontalDir.normalize();
-	verticalDir.normalize();
+	Vector3D verticalDir(0, -this->cam_height, 0);
 	float u = (float)i / (img_width - 1);
 	float v = (float)j / (img_height - 1);
 	this->ray.setPos(this->position);
-	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) - (verticalDir * v) - this->position);
-	this->ray.display();
+	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) + (verticalDir * v) - this->position);
+	//this->ray.display();
 }

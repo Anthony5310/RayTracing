@@ -21,6 +21,7 @@ public:
 	//Liste de lumière
 
 	Scene(void);
+	Scene(float p_img_height, float p_format);
 	~Scene(void);
 	void addObject(Object* p_object);
 };
