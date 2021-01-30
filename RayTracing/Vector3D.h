@@ -2,6 +2,7 @@
 #define _VECTOR3D_H_
 #include <iostream>
 #include <math.h>
+#include "Color.h"
 
 class Vector3D 
 {
@@ -20,6 +21,7 @@ public:
 	//Produit scalaire
 	Vector3D operator* (Vector3D p_vector);
 	Vector3D operator* (float p_scalar);
+	Vector3D operator* (Color p_color);
 	//Produit vectoriel
 	Vector3D operator^ (Vector3D p_vector);
 };

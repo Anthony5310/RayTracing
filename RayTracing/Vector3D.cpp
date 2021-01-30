@@ -66,6 +66,14 @@ Vector3D Vector3D::operator* (float p_scalar) {
 		p_scalar * z);
 }
 
+Vector3D Vector3D::operator* (Color p_color) 
+{
+	return Vector3D(
+		p_color.r * x,
+		p_color.g * y,
+		p_color.b * z
+	);
+}
 Vector3D Vector3D::operator^ (Vector3D p_vector) {
 	return Vector3D(
 		p_vector.z * y - p_vector.y * z,

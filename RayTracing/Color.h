@@ -7,7 +7,6 @@ class Color
 public:
 	Color(void);//Default: white
 	Color(char p_r, char p_g, char p_b);
-private:
 	char r, g, b;
 };
 #endif

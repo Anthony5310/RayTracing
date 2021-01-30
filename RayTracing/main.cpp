@@ -8,11 +8,13 @@ int main(int argc, char** argv)
 	FIBITMAP* image;
 	Scene scene(360, 4.0/3.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Sphere(Vector3D(0, 0,-1), .5f, Color()));
+	scene.addObject(new Sphere(Vector3D(0, 0,-1), .5f, Color(41, 128, 185)));
+	scene.addLight(new Light());
 	std::cout << scene.camera.img_width << " " << scene.camera.img_height << std::endl;
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
 	unsigned int height = scene.camera.img_height;
+	Color pixel_color;
 	for (i = 0; i < width; i++) 
 	{
 		for (j = 0; j < height; j++)
@@ -23,10 +25,12 @@ int main(int argc, char** argv)
 				Intersection* intersection = scene.objects[k]->intersection(scene.camera.ray);
 				if (intersection)
 				{
+					pixel_color = scene.objects[k]->lightImpact(scene.camera.ray, scene.lights, *intersection);
+					//pixel_color = scene.objects[k]->getColor();
 					scene.camera.ray.intersections.push_back(intersection);
-					color.rgbRed = 255;
-					color.rgbGreen = 255;
-					color.rgbBlue = 255;
+					color.rgbRed = pixel_color.r;
+					color.rgbGreen = pixel_color.g;
+					color.rgbBlue = pixel_color.b;
 				}
 				else 
 				{
