@@ -16,7 +16,19 @@ Scene::Scene(float p_img_height, float p_format)
 
 Scene::~Scene(void)
 {
+	unsigned int i;
+	for (i = 0; i < this->nbObjects; i++) {
+		delete this->objects[i];
+	}
 
+	for (i = 0; i < this->nbLights; i++) {
+		delete this->lights[i];
+	}
+
+	unsigned int nbIntersections = intersections.size();
+	for (i = 0; i < nbIntersections; i++) {
+		delete this->intersections[i];
+	}
 }
 
 
