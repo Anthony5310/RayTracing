@@ -7,8 +7,9 @@ class Intersection
 {
 public:
 	Vector3D position;
+	Vector3D normal;
 	Intersection(void);
-	Intersection(Vector3D p_position);
+	Intersection(Vector3D p_position, Vector3D p_normal);
 };
 
 #endif

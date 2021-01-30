@@ -6,9 +6,9 @@ int main(int argc, char** argv)
 {
 	RGBQUAD color;
 	FIBITMAP* image;
-	Scene scene(1080, 16.0/9.0);
+	Scene scene(360, 4.0/3.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Sphere(Vector3D(0, 0,-2), 1.0f, Color()));
+	scene.addObject(new Sphere(Vector3D(0, 0,-1), .5f, Color()));
 	std::cout << scene.camera.img_width << " " << scene.camera.img_height << std::endl;
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
@@ -28,9 +28,9 @@ int main(int argc, char** argv)
 					//std::cout << "Intersection : (" << i << ", " << j << ")" << std::endl;
 				}
 				else {
-					color.rgbRed = 0;
-					color.rgbGreen = 0;
-					color.rgbBlue = 0;
+					color.rgbRed = 110;
+					color.rgbGreen = 110;
+					color.rgbBlue = 110;
 				}
 			}
 			FreeImage_SetPixelColor(image, width-i-1, height-j-1, &color);
@@ -41,3 +41,13 @@ int main(int argc, char** argv)
 
 	return EXIT_SUCCESS;
 }
+
+/*
+	float calculatePhong(Vector sphereCenter, Vector intersection, Vector lightPosition, Vector rayOrigin, Material sphereMaterial) {
+	Vector sphereNormal = (intersection - sphereCenter).normalized();
+	Vector lightDirection = (lightPosition - intersection).normalized();
+	Vector viewDirection = (intersection - rayOrigin).normalized();
+	Vector blinnDirection = (lightDirection - viewDirection).normalized();
+	float blinnTerm = std::max(blinnDirection.dot(sphereNormal), 0.0f);
+	return sphereMaterial.specValue * powf(blinnTerm, sphereMaterial.specPower);
+}*/

@@ -35,16 +35,23 @@ std::vector<Intersection*> Sphere::intersections(Ray& p_ray)
 	float d = b * b - 4 * a * c;
 	if (d == 0) { //Only one intersection
 		float t = -b / 2 * a;
-		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t));
-		std::cout << "1 intersection" << std::endl;
+
+		Intersection* intersection = new Intersection();
+		intersection->position = p_ray.pos + p_ray.dir * t;
+		intersection->normal = (intersection->position - this->position);
+		list.push_back(intersection);
 	}
 	else if (d > 0) { //Two intersections, ray passes through the sphere
 		float dSqrt = sqrt(d);
 		float t1 = (-b - dSqrt) / 2 * a;
 		float t2 = (-b + dSqrt) / 2 * a;
-		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t1));
-		list.push_back(new Intersection(p_ray.pos + p_ray.dir * t2));
-		//std::cout << "2 intersections" << std::endl;
+		float t = std::max(t1,t2);
+		if (t > 0) {
+			Intersection* intersection = new Intersection();
+			intersection->position = p_ray.pos + p_ray.dir * t;
+			intersection->normal = (intersection->position - this->position);
+			list.push_back(intersection);
+		}
 	}
 	return list;
 }
