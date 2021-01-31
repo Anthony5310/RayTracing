@@ -66,12 +66,14 @@ Intersection* Scene::intersection(Ray& p_ray)
 
 bool Scene::shadow(Intersection* p_intersection)
 {
+	bool isShadow = false;
 	Ray secondRay(p_intersection->position+p_intersection->normal*0.01, 
 		(this->lights[0]->position - p_intersection->position).getNormalize());
 	Intersection* intersection = this->intersection(secondRay);	
 	float d = (this->lights[0]->position - p_intersection->position).norm();
 	if (intersection && intersection->t * intersection->t < d * d) {
-		return true;
+		isShadow = true;
 	}
-	return false;
+	delete intersection;
+	return isShadow;
 }

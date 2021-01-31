@@ -22,6 +22,10 @@ Sphere::Sphere(Vector3D p_position, float p_radius, Color p_color):
 	}
 }
 
+Sphere::~Sphere(void) {
+	delete this;
+}
+
 float Sphere::intersection(Ray& p_ray)
 {
 	Vector3D dist = p_ray.pos - this->position;

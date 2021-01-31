@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vld.h>
 #include "FreeImage.h"
 #include "Scene.h"
 
@@ -6,7 +7,7 @@ int main(int argc, char** argv)
 {
 	RGBQUAD color;
 	FIBITMAP* image;
-	Scene scene(1080, 16.0/9.0);
+	Scene scene(360, 4.0/3.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
 	scene.addObject(new Sphere(Vector3D(0.1, 0.1,-1), .25f, Color(41, 128, 185)));
 	//scene.addObject(new Sphere(Vector3D(0, 0,-1), .25f, Color(211, 84, 0)));
@@ -45,6 +46,7 @@ int main(int argc, char** argv)
 				color.rgbGreen = 110;
 				color.rgbBlue = 110;
 			}
+			delete intersection;
 			FreeImage_SetPixelColor(image, i, height-j-1, &color);
 		}
 	}

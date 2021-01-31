@@ -10,6 +10,7 @@ Ray::Ray(Vector3D p_origin, Vector3D p_dir):
 {
 }
 
+
 void Ray::setPos(Vector3D p_pos)
 {
 	pos = p_pos;

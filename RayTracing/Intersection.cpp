@@ -14,8 +14,3 @@ Intersection::Intersection(Vector3D p_position, Vector3D p_normal, int p_objectI
 	objectId = p_objectId;
 	t = p_t;
 }
-
-Intersection::~Intersection(void)
-{
-	delete this;
-}
