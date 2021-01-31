@@ -4,7 +4,6 @@ Sphere::Sphere(void):
 	PrimitiveObject()
 {
 	position = Vector3D(0.0f, 0.0f, 0.0f);
-	std::cout << "here\n";
 	radius = 1.0f;
 	color = Color(255, 255, 255); //Color white by default
 }
@@ -27,7 +26,8 @@ float Sphere::intersection(Ray& p_ray)
 {
 	Vector3D dist = p_ray.pos - this->position;
 	//Calcul of discriminant (d), d = b²-4ac
-	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
+	//float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
+	float a = 1;
 	float b = 2.0 * dist.scalarProduct(p_ray.dir);
 	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;
@@ -51,23 +51,33 @@ float Sphere::intersection(Ray& p_ray)
 
 Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)
 {
+	float lightDist = (p_lights[0]->position - p_intersection.position).norm();
 	//ambiant
-	Vector3D ambiant = p_lights[0]->color;
+	Vector3D ambiant = p_lights[0]->color * 0.2;
 
 	//diffuse
 	Vector3D L = p_lights[0]->position - p_intersection.position;
 	L.normalize();
-	float Id = std::max(p_intersection.normal.scalarProduct(L), 0.0f);
+	float Id = p_intersection.normal.scalarProduct(L);
+	if (Id < 0) {
+		Id = 0.0f;
+	}
 	Vector3D diffuse = p_lights[0]->color * Id;
 
 	//specular
 	Vector3D V = p_intersection.position - p_ray.pos;
 	V.normalize();
-	Vector3D R = p_intersection.normal * 2.0f * p_intersection.normal.scalarProduct(L) - L;
-	float spec = pow(std::max(V.scalarProduct(R), 0.0f), 32);
-	Vector3D specular = p_lights[0]->color * (0.5 * spec);
-
-	Vector3D totalLight = (ambiant + diffuse) * this->color;
+	Vector3D H = (V + L).getNormalize();
+	float Is = p_intersection.normal.scalarProduct(H);
+	if (Is < 0) {
+		Is = 0.0f;
+	}
+	else {
+		Is = pow(Is, 8);
+	}
+	Vector3D specular = p_lights[0]->color *  Is * 0.5;
+	
+	Vector3D totalLight = (ambiant + diffuse + specular) * this->color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 

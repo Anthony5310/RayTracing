@@ -1,4 +1,14 @@
-﻿  Scene.cpp
-D:\git_workspace\RayTracing\RayTracing\Scene.cpp(11,81): warning C4305: 'argument' : troncation de 'double' à 'float'
-D:\git_workspace\RayTracing\RayTracing\Scene.cpp(69,68): warning C4305: 'argument' : troncation de 'double' à 'float'
+﻿  main.cpp
+D:\git_workspace\RayTracing\RayTracing\main.cpp(9,29): warning C4305: 'argument' : troncation de 'double' à 'float'
+D:\git_workspace\RayTracing\RayTracing\main.cpp(11,49): warning C4305: 'argument' : troncation de 'double' à 'float'
+D:\git_workspace\RayTracing\RayTracing\main.cpp(11,73): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(11,68): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(13,76): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(13,71): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(13,66): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(14,78): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(14,73): warning C4309: 'argument' : troncation de valeur de constante
+D:\git_workspace\RayTracing\RayTracing\main.cpp(18,21): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\main.cpp(19,22): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\main.cpp(17,21): warning C4101: 'k' : variable locale non référencée
   RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe

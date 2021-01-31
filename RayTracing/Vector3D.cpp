@@ -17,7 +17,7 @@ void Vector3D::display(void)
 
 float Vector3D::norm(void)
 {
-	return sqrtf(pow(this->x, 2) + pow(this->y, 2) + pow(this->z, 2));
+	return sqrtf(x*x + y*y + z*z);
 }
 
 void Vector3D::normalize(void) 

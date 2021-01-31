@@ -42,6 +42,6 @@ void Camera::traceRay(unsigned int i, unsigned int j) {
 	float u = (float)i / (img_width - 1);
 	float v = (float)j / (img_height - 1);
 	this->ray.setPos(this->position);
-	this->ray.setDir(this->upLeftCorner + (horizontalDir * u) + (verticalDir * v) - this->position);
+	this->ray.setDir((this->upLeftCorner + (horizontalDir * u) + (verticalDir * v) - this->position).getNormalize());
 	//this->ray.display();
 }

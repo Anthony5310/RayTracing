@@ -28,7 +28,7 @@ public:
 	~Scene(void);
 	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
-	Intersection* intersection(void);
+	Intersection* intersection(Ray& p_ray);
 	bool shadow(Intersection* p_intersection);
 };
 

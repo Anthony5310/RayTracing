@@ -39,7 +39,7 @@ void Scene::addLight(Light* p_light)
 	this->nbLights++;
 }
 
-Intersection* Scene::intersection(void)
+Intersection* Scene::intersection(Ray& p_ray)
 {
 	unsigned int i;
 	float tMin = 100000.0f;
@@ -47,8 +47,8 @@ Intersection* Scene::intersection(void)
 	int objectId=-1;
 	Intersection* intersection = NULL;
 	for (i = 0; i < this->nbObjects; i++) {
-		tCurrent = this->objects[i]->intersection(camera.ray);
-		if (tCurrent > 0 && tCurrent < tMin)
+		tCurrent = this->objects[i]->intersection(p_ray);
+		if (tCurrent >= 0 && tCurrent < tMin)
 		{
 			tMin = tCurrent;
 			objectId = i;
@@ -56,7 +56,7 @@ Intersection* Scene::intersection(void)
 	}
 	if (objectId >= 0)
 	{
-		Vector3D posIntersection = camera.ray.pos + camera.ray.dir * tMin;
+		Vector3D posIntersection = p_ray.pos + p_ray.dir * tMin;
 		Vector3D normale = posIntersection - this->objects[objectId]->position;
 		normale.normalize();
 		intersection = new Intersection(posIntersection, normale, objectId, tMin);
@@ -66,9 +66,9 @@ Intersection* Scene::intersection(void)
 
 bool Scene::shadow(Intersection* p_intersection)
 {
-	Ray secondRay(p_intersection->position+p_intersection->normal*0.01, (this->lights[0]->position - p_intersection->position).getNormalize());
-	this->camera.ray = secondRay;
-	Intersection* intersection = this->intersection();	
+	Ray secondRay(p_intersection->position+p_intersection->normal*0.01, 
+		(this->lights[0]->position - p_intersection->position).getNormalize());
+	Intersection* intersection = this->intersection(secondRay);	
 	float d = (this->lights[0]->position - p_intersection->position).norm();
 	if (intersection && intersection->t * intersection->t < d * d) {
 		return true;

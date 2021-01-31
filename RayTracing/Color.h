@@ -5,8 +5,10 @@
 class Color
 {
 public:
+	unsigned char r, g, b;
+
 	Color(void);//Default: white
 	Color(char p_r, char p_g, char p_b);
-	char r, g, b;
+	void clamp(void);
 };
 #endif
