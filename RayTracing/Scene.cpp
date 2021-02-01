@@ -9,7 +9,6 @@ Scene::Scene(void)
 Scene::Scene(float p_img_height, float p_format)
 {
 	camera = Camera(p_img_height, 1.5, p_format, 1.0, 0.3, 100.0, Vector3D(0, 0, 0));
-	std::cout << camera.img_width << std::endl;
 	this->nbObjects = 0;
 	this->nbLights = 0;
 }
@@ -26,6 +25,12 @@ Scene::~Scene(void)
 	}
 }
 
+void Scene::information(void)
+{
+	std::cout << "Dimension: " << this->camera.img_height << "x" << this->camera.img_width << std::endl;
+	std::cout << "Nb objets: " << this->nbObjects << std::endl;
+	std::cout << "Nb lights: " << this->nbLights << std::endl;
+}
 
 void Scene::addObject(PrimitiveObject* p_object)
 {

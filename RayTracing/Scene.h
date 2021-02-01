@@ -26,6 +26,7 @@ public:
 	Scene(void);
 	Scene(float p_img_height, float p_format);
 	~Scene(void);
+	void information(void);
 	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
 	Intersection* intersection(Ray& p_ray);
