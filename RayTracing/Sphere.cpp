@@ -69,7 +69,7 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 	Vector3D diffuse = p_lights[0]->color * Id;
 
 	//specular
-	Vector3D V = p_intersection.position - p_ray.pos;
+	/*Vector3D V = p_intersection.position - p_ray.pos;
 	V.normalize();
 	Vector3D H = (V + L).getNormalize();
 	float Is = p_intersection.normal.scalarProduct(H);
@@ -77,11 +77,11 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 		Is = 0.0f;
 	}
 	else {
-		Is = pow(Is, 8);
+		Is = pow(Is, 32);
 	}
-	Vector3D specular = p_lights[0]->color *  Is * 0.5;
+	Vector3D specular = p_lights[0]->color *  Is;*/
 	
-	Vector3D totalLight = (ambiant + diffuse + specular) * this->color;
+	Vector3D totalLight = (ambiant + diffuse) * this->color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 
