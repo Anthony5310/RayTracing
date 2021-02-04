@@ -5,14 +5,14 @@ Sphere::Sphere(void):
 {
 	position = Vector3D(0.0f, 0.0f, 0.0f);
 	radius = 1.0f;
-	color = Color(255, 255, 255); //Color white by default
+	material = Material(); //Color white by default
 }
 
-Sphere::Sphere(Vector3D p_position, float p_radius, Color p_color):
+Sphere::Sphere(Vector3D p_position, float p_radius, Material p_material):
 	PrimitiveObject()
 {
 	this->position = p_position;
-	this->color = p_color;
+	this->material = p_material;
 	//Check if radius is positif
 	if (radius >= 0) {
 		radius = p_radius;
@@ -81,12 +81,12 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 	}
 	Vector3D specular = p_lights[0]->color *  Is;*/
 	
-	Vector3D totalLight = (ambiant + diffuse) * this->color;
+	Vector3D totalLight = (ambiant + diffuse) * this->material.color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 
 Color Sphere::getColor(void)
 {
-	return color;
+	return material.color;
 }
 

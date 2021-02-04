@@ -7,6 +7,7 @@
 #include "Ray.h"
 #include "Color.h"
 #include "Light.h"
+#include "Material.h"
 
 class PrimitiveObject : public Object
 {

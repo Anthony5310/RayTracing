@@ -8,10 +8,10 @@ class Sphere : public PrimitiveObject
 {
 public:
 	float radius;
-	Color color;
+	Material material;
 
 	Sphere(void);
-	Sphere(Vector3D p_position, float p_radius, Color p_color);
+	Sphere(Vector3D p_position, float p_radius, Material p_material);
 	~Sphere(void);
 	virtual float intersection(Ray& p_ray);
 	virtual Color lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection);
