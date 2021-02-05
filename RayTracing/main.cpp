@@ -9,9 +9,10 @@ int main(int argc, char** argv)
 	Scene scene(360, 4.0/3.0);
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Sphere(Vector3D(0, 0.3,-1), .25f, Material(Color(41, 128, 185), 0.2, 1.0, 1.0)));
-	scene.addObject(new Sphere(Vector3D(0, 0,-1010), 1000.0f, Material(Color(149, 165, 166), 0.2, 1.0, 1.0)));//Fond
-	scene.addObject(new Sphere(Vector3D(0, -1001.5,0), 1000.0f, Material(Color(127, 140, 141), 0.2, 1.0, 1.0)));//Bas
+	scene.addObject(new Sphere(Vector3D(0, 0.3,-1), .25f, Material(Color(41, 128, 185), 0.2, 0.3, 0.4)));
+	scene.addObject(new Sphere(Vector3D(-0.2, -0.3,-1), .25f, Material(Color(154, 28, 85), 0.2, 0.3, 0.4)));
+	scene.addObject(new Sphere(Vector3D(0, 0,-1010), 1000.0f, Material(Color(149, 165, 166), 0.2, 0.4, 1.0)));//Fond
+	scene.addObject(new Sphere(Vector3D(0, -1001.5,0), 1000.0f, Material(Color(127, 140, 141), 0.2, 0.4, 1.0)));//Bas
 	scene.addLight(new Light());
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;

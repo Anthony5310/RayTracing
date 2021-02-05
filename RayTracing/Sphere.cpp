@@ -57,31 +57,25 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 {
 	float lightDist = (p_lights[0]->position - p_intersection.position).norm();
 	//ambiant
-	Vector3D ambiant = p_lights[0]->color * this->material.kAmbiant;
+	Vector3D ambiant = Vector3D(1.0, 1.0, 1.0) * this->material.kAmbiant;
 
 	//diffuse
 	Vector3D L = p_lights[0]->position - p_intersection.position;
 	L.normalize();
-	float Id = p_intersection.normal.scalarProduct(L);
-	if (Id < 0) {
-		Id = 0.0f;
-	}
-	Vector3D diffuse = p_lights[0]->color * Id * this->material.kDiffus;
+	float NL = p_intersection.normal.scalarProduct(L);
+	if (NL < 0)	NL = 0.0f;
+	Vector3D diffuse = p_lights[0]->color * NL * this->material.kDiffus * (1 / lightDist*lightDist);
 
 	//specular
-	/*Vector3D V = p_intersection.position - p_ray.pos;
+	Vector3D V = p_intersection.position - p_ray.pos;
 	V.normalize();
 	Vector3D H = (V + L).getNormalize();
 	float Is = p_intersection.normal.scalarProduct(H);
-	if (Is < 0) {
-		Is = 0.0f;
-	}
-	else {
-		Is = pow(Is, 32);
-	}
-	Vector3D specular = p_lights[0]->color *  Is;*/
+	if (Is < 0) Is = 0;
+	Is = pow(Is, 16);
+	Vector3D specular = p_lights[0]->color * Is * this->material.kSpecular;
 	
-	Vector3D totalLight = (ambiant + diffuse) * this->material.color;
+	Vector3D totalLight = (ambiant + diffuse + specular) * this->material.color;
 	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
 }
 
