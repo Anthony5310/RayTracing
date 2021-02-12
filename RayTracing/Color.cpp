@@ -38,3 +38,15 @@ void Color::clamp(void)
 		 b = 255;
 	}
 }
+
+Color Color::operator*(float p_scalar) {
+	return Color(r * p_scalar,
+	g * p_scalar,
+	b * p_scalar);
+}
+
+Color Color::operator+(Color p_color) {
+	return Color(r + p_color.r,
+	g + p_color.g,
+	b * p_color.b);
+}

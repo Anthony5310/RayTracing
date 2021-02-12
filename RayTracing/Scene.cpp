@@ -62,8 +62,7 @@ Intersection* Scene::intersection(Ray& p_ray)
 	if (objectId >= 0)
 	{
 		Vector3D posIntersection = p_ray.pos + p_ray.dir * tMin;
-		Vector3D normale = posIntersection - this->objects[objectId]->position;
-		normale.normalize();
+		Vector3D normale = (posIntersection - this->objects[objectId]->position).getNormalize();
 		intersection = new Intersection(posIntersection, normale, objectId, tMin);
 	}
 	return intersection;
@@ -72,7 +71,7 @@ Intersection* Scene::intersection(Ray& p_ray)
 bool Scene::shadow(Intersection* p_intersection)
 {
 	bool isShadow = false;
-	Ray secondRay(p_intersection->position+p_intersection->normal*0.01, 
+	Ray secondRay(p_intersection->position+p_intersection->normal*0.1, 
 		(this->lights[0]->position - p_intersection->position).getNormalize());
 	Intersection* intersection = this->intersection(secondRay);	
 	float d = (this->lights[0]->position - p_intersection->position).norm();

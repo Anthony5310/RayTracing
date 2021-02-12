@@ -5,7 +5,7 @@
 class Light : public Object
 {
 public:
-	Vector3D color;
+	Color color;
 	Light();
 };
 #endif // !_LIGHT_H_
