@@ -68,12 +68,12 @@ Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection
 
 	/*** specular ***/
 	//Vecteur normalisé du point d'intersection vers le point de la camera
-	Vector3D V = (p_intersection.position - p_ray.pos).getNormalize();
+	Vector3D V = (p_ray.pos - p_intersection.position).getNormalize();
 	Vector3D H = (V + L).getNormalize();// V+L / ||V+L||
 	float NH = p_intersection.normal.scalarProduct(H);// N.H
 	NH = pow(NH, 16); //max(0, NH)
 	if (NH < 0) NH = 0;
-	Color specular = p_lights[0]->color * NH * (1 / lightDist * lightDist) * this->material.kSpecular;
+	Color specular = p_lights[0]->color * NH * (1 / lightDist*lightDist) * this->material.kSpecular;
 	
 	Color totalLight = (ambiant + diffuse + specular);
 	return totalLight;
