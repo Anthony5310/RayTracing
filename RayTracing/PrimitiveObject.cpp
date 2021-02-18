@@ -3,10 +3,12 @@
 PrimitiveObject::PrimitiveObject(void) :
 	Object()
 {
+	material = Material(); //Color white by default
 }
 
 PrimitiveObject::~PrimitiveObject(void)
 {
+	material = Material(); //Color white by default
 }
 
 float PrimitiveObject::intersection(Ray& p_ray)

@@ -12,7 +12,8 @@
 class PrimitiveObject : public Object
 {
 public:
-
+	Material material;
+	
 	PrimitiveObject();
 	~PrimitiveObject();
 	virtual float intersection(Ray& p_ray) = 0;

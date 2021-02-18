@@ -5,7 +5,6 @@ Sphere::Sphere(void):
 {
 	position = Vector3D(0.0f, 0.0f, 0.0f);
 	radius = 1.0f;
-	material = Material(); //Color white by default
 }
 
 Sphere::Sphere(Vector3D p_position, float p_radius, Material p_material):

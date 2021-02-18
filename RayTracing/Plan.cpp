@@ -12,3 +12,8 @@ Plan::Plan(Vector3D p_position, float p_width, float p_height) :
 {
 	position = p_position;
 }
+float Plan::intersection(Ray& p_ray) {
+	Vector3D distance = p_ray.pos - this->position;
+	float t = distance.scalarProduct(this->normal) / p_ray.dir.scalarProduct(this->normal);
+	return t;
+}

@@ -7,7 +7,6 @@ class Sphere : public PrimitiveObject
 {
 public:
 	float radius;
-	Material material;
 
 	Sphere(void);
 	Sphere(Vector3D p_position, float p_radius, Material p_material);
