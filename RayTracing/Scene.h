@@ -6,6 +6,7 @@
 #include "Camera.h"
 #include "Ray.h"
 #include "Sphere.h"
+#include "Plan.h"
 #include "Intersection.h"
 #include "Color.h"
 #include "Object.h"

@@ -9,10 +9,19 @@ int main(int argc, char** argv)
 	Scene scene(360, 4.0/3.0);
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Sphere(Vector3D(0, 0.3,-1), .25f, Material(Color(41, 128, 185), 0.2, 0.3, 0.5)));
-	scene.addObject(new Sphere(Vector3D(-0.2, -0.3,-1), .25f, Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
-	scene.addObject(new Sphere(Vector3D(0, 0,-1010), 1000.0f, Material(Color(149, 165, 166), 0.2, 0.4, .2)));//Fond
-	scene.addObject(new Sphere(Vector3D(0, -1001.5,0), 1000.0f, Material(Color(127, 140, 141), 0.2, 0.4, .5)));//Bas
+	scene.addObject(new Sphere(
+		Vector3D(0, 0.3,-1),
+		.25f,
+		Material(Color(41, 128, 185), 0.2, 0.3, 0.5)));
+	scene.addObject(new Sphere(
+		Vector3D(-0.2, -0.3,-1),
+		.25f, 
+		Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
+	/*scene.addObject(new Plan(
+		Vector3D(0.1, 0.1, -0.2), 
+		10, 10, 
+		Vector3D(0,0,1), 
+		Material(Color(100,247,95), .0,.0,.0)));*/
 	scene.addLight(new Light());
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
@@ -42,9 +51,9 @@ int main(int argc, char** argv)
 			}
 			else 
 			{
-				color.rgbRed = 110;
-				color.rgbGreen = 110;
-				color.rgbBlue = 110;
+				color.rgbRed = 0;
+				color.rgbGreen = 0;
+				color.rgbBlue = 0;
 			}
 			delete intersection;
 			FreeImage_SetPixelColor(image, i, height-j-1, &color);
