@@ -17,11 +17,6 @@ int main(int argc, char** argv)
 		Vector3D(-0.2, -0.3,-1),
 		.25f, 
 		Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
-	/*scene.addObject(new Plan(
-		Vector3D(0.1, 0.1, -0.2), 
-		10, 10, 
-		Vector3D(0,0,1), 
-		Material(Color(100,247,95), .0,.0,.0)));*/
 	scene.addLight(new Light());
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;

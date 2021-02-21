@@ -17,15 +17,16 @@ float Plan::intersection(Ray& p_ray) {
 	Vector3D diff = (this->position - p_ray.pos).getNormalize();
 	float ndotrd = p_ray.dir.scalarProduct(this->normal); //ndotd <=> n.p_ray[dir]
 	float t = -1;
-	if (ndotrd != 0 )
+	if (ndotrd != 0.0 )
 	{
 		t = diff.scalarProduct(this->normal) / ndotrd;
 		if (t >= 0) {
 			Vector3D p = p_ray.pos + p_ray.dir * t;
-			float distance = (p - this->position).norm();
-			if (distance >= this->width / 2 || distance >= this->height / 2) {
+			
+			/*
+			if (!isInPlan(p)) {
 				t = -1;
-			}
+			}*/
 		}
 	}
 	return t;
@@ -39,4 +40,17 @@ Color Plan::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& 
 Color Plan::getColor(void)
 {
 	return material.color;
+}
+
+bool Plan::isInPlan(Vector3D p_point) 
+{
+	Vector3D diff(p_point.x - this->position.x, p_point.y - this->position.y, 0.0f);
+	if (diff.x < 0)
+		diff.x = -diff.x;
+	if (diff.y < 0)
+		diff.y = -diff.y;
+	if (diff.x >= this->width / 2 || diff.y >= this->height / 2) {
+		return false;
+	}
+	return true;
 }

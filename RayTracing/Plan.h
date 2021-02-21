@@ -14,5 +14,6 @@ public:
 	float intersection(Ray& p_ray);
 	Color lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection);
 	Color getColor(void);
+	bool isInPlan(Vector3D p_point);
 };
 #endif
