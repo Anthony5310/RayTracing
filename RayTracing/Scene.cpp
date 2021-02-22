@@ -48,22 +48,16 @@ Intersection* Scene::intersection(Ray& p_ray)
 {
 	unsigned int i;
 	float tMin = 100000.0f;
-	float tCurrent;
-	int objectId=-1;
+	Intersection* currentIntersection = NULL;
 	Intersection* intersection = NULL;
 	for (i = 0; i < this->nbObjects; i++) {
-		tCurrent = this->objects[i]->intersection(p_ray);
-		if (tCurrent >= 0 && tCurrent < tMin)
+		currentIntersection = this->objects[i]->intersection(p_ray);
+		if (currentIntersection && currentIntersection->t >= 0 && currentIntersection->t < tMin)
 		{
-			tMin = tCurrent;
-			objectId = i;
+			tMin = currentIntersection->t;
+			currentIntersection->objectId = i;
+			intersection = currentIntersection;
 		}
-	}
-	if (objectId >= 0)
-	{
-		Vector3D posIntersection = p_ray.pos + p_ray.dir * tMin;
-		Vector3D normale = (posIntersection - this->objects[objectId]->position).getNormalize();
-		intersection = new Intersection(posIntersection, normale, objectId, tMin);
 	}
 	return intersection;
 }

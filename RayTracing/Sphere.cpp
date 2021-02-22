@@ -28,6 +28,7 @@ Sphere::~Sphere(void) {
 Intersection* Sphere::intersection(Ray& p_ray)
 {
 	Vector3D dist = p_ray.pos - this->position;
+	Intersection* new_intersection = NULL;
 	//Calcul of discriminant (d), d = b²-4ac
 	//float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
 	float a = 1;
@@ -49,9 +50,11 @@ Intersection* Sphere::intersection(Ray& p_ray)
 			t = t2;
 		}
 	}
-	Vector3D intersection_pos = p_ray.pos + p_ray.dir * t;
-	Vector3D intersection_normal = (this->position - intersection_pos).getNormalize();
-	Intersection* new_intersection = new Intersection(intersection_pos, intersection_normal, 0, t);
+	if (t >= 0) {
+		Vector3D intersection_pos = p_ray.pos + p_ray.dir * t;
+		Vector3D intersection_normal = (intersection_pos - this->position).getNormalize();
+		new_intersection = new Intersection(intersection_pos, intersection_normal, 0, t);
+	}	
 	return new_intersection;
 }
 

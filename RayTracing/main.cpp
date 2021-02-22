@@ -13,10 +13,13 @@ int main(int argc, char** argv)
 		Vector3D(0, 0.3,-1),
 		.25f,
 		Material(Color(41, 128, 185), 0.2, 0.3, 0.5)));
+	
 	scene.addObject(new Sphere(
 		Vector3D(-0.2, -0.3,-1),
 		.25f, 
 		Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
+	
+	
 	//Sol
 	scene.addObject(new Plan(
 		Vector3D(0.01,-1,-1),
