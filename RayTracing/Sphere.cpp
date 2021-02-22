@@ -25,7 +25,7 @@ Sphere::~Sphere(void) {
 	delete this;
 }
 
-float Sphere::intersection(Ray& p_ray)
+Intersection* Sphere::intersection(Ray& p_ray)
 {
 	Vector3D dist = p_ray.pos - this->position;
 	//Calcul of discriminant (d), d = b²-4ac
@@ -49,7 +49,10 @@ float Sphere::intersection(Ray& p_ray)
 			t = t2;
 		}
 	}
-	return t;
+	Vector3D intersection_pos = p_ray.pos + p_ray.dir * t;
+	Vector3D intersection_normal = (this->position - intersection_pos).getNormalize();
+	Intersection* new_intersection = new Intersection(intersection_pos, intersection_normal, 0, t);
+	return new_intersection;
 }
 
 Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)

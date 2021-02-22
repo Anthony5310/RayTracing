@@ -11,9 +11,9 @@ PrimitiveObject::~PrimitiveObject(void)
 	material = Material(); //Color white by default
 }
 
-float PrimitiveObject::intersection(Ray& p_ray)
+Intersection* PrimitiveObject::intersection(Ray& p_ray)
 {
-	return -1.0f;
+	return NULL;
 }
 
 Color PrimitiveObject::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)

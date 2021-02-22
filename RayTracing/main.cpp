@@ -17,6 +17,41 @@ int main(int argc, char** argv)
 		Vector3D(-0.2, -0.3,-1),
 		.25f, 
 		Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
+	//Sol
+	scene.addObject(new Plan(
+		Vector3D(0.01,-1,-1),
+		0,0,
+		Vector3D(0, 1, 0.5),
+		Material(Color(52, 73, 94), 0.0, 0.0, 0.0)
+	));
+	//Plafond
+	scene.addObject(new Plan(
+		Vector3D(0.01, 1, -1),
+		0, 0,
+		Vector3D(0, 1, -0.5),
+		Material(Color(52, 73, 94), 0.0, 0.0, 0.0)
+	));
+	//Fond
+	scene.addObject(new Plan(
+		Vector3D(0.01, -1, -3),
+		0, 0,
+		Vector3D(0, 0, 1),
+		Material(Color(26, 188, 156), 0.0, 0.0, 0.0)
+	));
+	//Mur Gauche
+	scene.addObject(new Plan(
+		Vector3D(-1, -1, -1),
+		0, 0,
+		Vector3D(1, 0, 0),
+		Material(Color(52, 152, 219), 0.0, 0.0, 0.0)
+	));
+	//Mur Droite
+	scene.addObject(new Plan(
+		Vector3D(1, 1, -1),
+		0, 0,
+		Vector3D(1, 0, 0),
+		Material(Color(52, 152, 219), 0.0, 0.0, 0.0)
+	));
 	scene.addLight(new Light());
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;

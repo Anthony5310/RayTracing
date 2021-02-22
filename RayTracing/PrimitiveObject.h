@@ -16,7 +16,7 @@ public:
 	
 	PrimitiveObject();
 	~PrimitiveObject();
-	virtual float intersection(Ray& p_ray) = 0;
+	virtual Intersection* intersection(Ray& p_ray) = 0;
 	virtual Color lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection) =0;
 	virtual Color getColor(void)=0;
 };

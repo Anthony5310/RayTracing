@@ -8,12 +8,12 @@ Plan::Plan(void):
 }
 
 Plan::Plan(Vector3D p_position, float p_width, float p_height, Vector3D p_normal, Material p_material) :
-	PrimitiveObject(), width(p_width), height(p_height), normal(p_normal)
+	PrimitiveObject(), width(p_width), height(p_height), normal(p_normal.getNormalize())
 {
 	position = p_position;
 	material = p_material;
 }
-float Plan::intersection(Ray& p_ray) {
+Intersection* Plan::intersection(Ray& p_ray) {
 	Vector3D diff = (this->position - p_ray.pos).getNormalize();
 	float ndotrd = p_ray.dir.scalarProduct(this->normal); //ndotd <=> n.p_ray[dir]
 	float t = -1;
