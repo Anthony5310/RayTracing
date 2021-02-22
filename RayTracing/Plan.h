@@ -12,7 +12,6 @@ public:
 	Plan(void);
 	Plan(Vector3D p_position, float p_width, float p_height, Vector3D p_normal, Material p_material);
 	Intersection* intersection(Ray& p_ray);
-	Color lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection);
 	Color getColor(void);
 	bool isInPlan(Vector3D p_point);
 };

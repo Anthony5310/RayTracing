@@ -56,7 +56,11 @@ Intersection* Scene::intersection(Ray& p_ray)
 		{
 			tMin = currentIntersection->t;
 			currentIntersection->objectId = i;
+			delete intersection;
 			intersection = currentIntersection;
+		}
+		else {
+			delete currentIntersection;
 		}
 	}
 	return intersection;

@@ -25,35 +25,35 @@ int main(int argc, char** argv)
 		Vector3D(0.01,-1,-1),
 		0,0,
 		Vector3D(0, 1, 0.5),
-		Material(Color(52, 73, 94), 0.0, 0.0, 0.0)
+		Material(Color(52, 73, 94), 0.2, 0.3, 0.2)
 	));
 	//Plafond
 	scene.addObject(new Plan(
 		Vector3D(0.01, 1, -1),
 		0, 0,
 		Vector3D(0, 1, -0.5),
-		Material(Color(52, 73, 94), 0.0, 0.0, 0.0)
+		Material(Color(52, 73, 94), 0.2, 0.3, 0.2)
 	));
 	//Fond
 	scene.addObject(new Plan(
 		Vector3D(0.01, -1, -3),
 		0, 0,
 		Vector3D(0, 0, 1),
-		Material(Color(26, 188, 156), 0.0, 0.0, 0.0)
+		Material(Color(26, 188, 156), 0.2, 0.3, 0.2)
 	));
 	//Mur Gauche
 	scene.addObject(new Plan(
 		Vector3D(-1, -1, -1),
 		0, 0,
 		Vector3D(1, 0, 0),
-		Material(Color(52, 152, 219), 0.0, 0.0, 0.0)
+		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
 	));
 	//Mur Droite
 	scene.addObject(new Plan(
 		Vector3D(1, 1, -1),
 		0, 0,
 		Vector3D(1, 0, 0),
-		Material(Color(52, 152, 219), 0.0, 0.0, 0.0)
+		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
 	));
 	scene.addLight(new Light());
 	unsigned int i, j, k;

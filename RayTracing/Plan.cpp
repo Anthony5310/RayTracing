@@ -29,11 +29,6 @@ Intersection* Plan::intersection(Ray& p_ray) {
 	return new_intersection;
 }
 
-Color Plan::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)
-{
-	return material.color;
-}
-
 Color Plan::getColor(void)
 {
 	return material.color;
