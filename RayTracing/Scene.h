@@ -13,6 +13,8 @@
 #include "PrimitiveObject.h"
 #include "Light.h"
 
+#define MAX_REFLECT 3
+
 class Scene
 { 
 public:
@@ -32,6 +34,7 @@ public:
 	void addLight(Light* p_light);
 	Intersection* intersection(Ray& p_ray);
 	bool shadow(Intersection* p_intersection);
+	Color getPixelColor(Intersection& p_intersection, int nbReflect=0);
 };
 
 #endif

@@ -79,3 +79,24 @@ bool Scene::shadow(Intersection* p_intersection)
 	delete intersection;
 	return isShadow;
 }
+
+Color Scene::getPixelColor(Intersection& p_intersection, int nbReflect) {
+
+	if (this->objects[p_intersection.objectId]->material.mirror) {
+		//Si le nombre de reflect maximum a été atteint sans atteindre d'object diffus, on renvoie la couleur noir
+		if (nbReflect >= MAX_REFLECT)
+			return Color(0, 0, 0);
+		Vector3D mirrorDir = this->camera.ray.dir.reflect(p_intersection.normal);
+		Ray mirrorRay(p_intersection.position + p_intersection.normal * 0.001, mirrorDir);
+		Intersection* intersection = this->intersection(mirrorRay);
+		if (intersection) {
+			return getPixelColor(*intersection, nbReflect+=1);
+		}
+		else {
+			return Color(0, 0, 0);
+		}
+	}
+	else {
+		return this->objects[p_intersection.objectId]->lightImpact(this->camera.ray, this->lights, p_intersection);
+	}
+}

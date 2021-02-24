@@ -38,8 +38,8 @@ Color PrimitiveObject::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Int
 	if (NH < 0) NH = 0;
 	Color specular = p_lights[0]->color * NH * (1 / lightDist * lightDist) * this->material.kSpecular;
 
-	Color totalLight = (ambiant + diffuse + specular);
-	return totalLight;
+	Color pixelColor = (ambiant + diffuse + specular);
+	return pixelColor;
 }
 
 Color PrimitiveObject::getColor(void)

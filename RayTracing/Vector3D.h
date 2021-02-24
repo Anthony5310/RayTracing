@@ -26,6 +26,8 @@ public:
 	Vector3D operator* (Color p_color);
 	//Produit vectoriel
 	Vector3D operator^ (Vector3D p_vector);
+	//Vecteur reflected regarding normal
+	Vector3D reflect(Vector3D p_normal);
 };
 
 #endif

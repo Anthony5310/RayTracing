@@ -10,14 +10,14 @@ int main(int argc, char** argv)
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
 	scene.addObject(new Sphere(
-		Vector3D(0, 0.3,-1),
+		Vector3D(0, 0.3,-1.1),
 		.25f,
-		Material(Color(41, 128, 185), 0.2, 0.3, 0.5)));
+		Material(Color(41, 128, 185), 0.2, 0.3, 0.5, true)));
 	
 	scene.addObject(new Sphere(
-		Vector3D(-0.2, -0.3,-1),
+		Vector3D(0, -0.3,-1),
 		.25f, 
-		Material(Color(154, 28, 85), 0.2, 0.3, 0.2)));
+		Material(Color(154, 28, 85), 0.2, 0.3, 0.2, false)));
 	
 	
 	//Sol
@@ -36,7 +36,7 @@ int main(int argc, char** argv)
 	));
 	//Fond
 	scene.addObject(new Plan(
-		Vector3D(0.01, -1, -3),
+		Vector3D(0.01, -1, -10),
 		0, 0,
 		Vector3D(0, 0, 1),
 		Material(Color(26, 188, 156), 0.2, 0.3, 0.2)
@@ -75,7 +75,7 @@ int main(int argc, char** argv)
 				}
 				else
 				{
-					pixel_color = scene.objects[intersection->objectId]->lightImpact(scene.camera.ray, scene.lights, *intersection);
+					pixel_color = scene.getPixelColor(*intersection);
 				}
 				pixel_color.clamp();
 				color.rgbRed = pixel_color.r;

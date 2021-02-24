@@ -95,3 +95,7 @@ Vector3D Vector3D::operator^ (Vector3D p_vector) {
 		p_vector.x * z - p_vector.z * x,
 		p_vector.y * x - p_vector.x * y);
 }
+
+Vector3D Vector3D::reflect(Vector3D p_normal) {
+	return (*this) - (p_normal * this->scalarProduct(p_normal) * 2);
+}
