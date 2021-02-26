@@ -9,11 +9,17 @@ int main(int argc, char** argv)
 	Scene scene(360, 4.0/3.0);
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
+	scene.addObject(new Triangle(
+		Vector3D(-1, -0.75, -2),
+		Vector3D(-1, 0.75, -2),
+		Vector3D(1, 0.75, -2),
+		Material(Color(158, 47, 56), 0.2, 0.3, 0.5)
+	));
 	scene.addObject(new Sphere(
 		Vector3D(0, 0.3,-1.1),
 		.25f,
-		Material(Color(41, 128, 185), 0.2, 0.3, 0.5, true)));
-	
+		Material(Color(41, 128, 185), 0.2, 0.3, 0.5, false)));
+	/*
 	scene.addObject(new Sphere(
 		Vector3D(0, -0.3,-1),
 		.25f, 
@@ -54,7 +60,7 @@ int main(int argc, char** argv)
 		0, 0,
 		Vector3D(1, 0, 0),
 		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
-	));
+	));*/
 	scene.addLight(new Light());
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;

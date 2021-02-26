@@ -7,6 +7,7 @@
 #include "Ray.h"
 #include "Sphere.h"
 #include "Plan.h"
+#include "Triangle.h"
 #include "Intersection.h"
 #include "Color.h"
 #include "Object.h"
