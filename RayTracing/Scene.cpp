@@ -8,7 +8,7 @@ Scene::Scene(void)
 
 Scene::Scene(float p_img_height, float p_format)
 {
-	camera = Camera(p_img_height, 1.5, p_format, 1.0, 0.3, 100.0, Vector3D(0, 0, 0));
+	camera = Camera(p_img_height, 1.5f, p_format, 1.0f, 0.3f, 10.0f, Vector3D(0, 0, 0));
 	this->nbObjects = 0;
 	this->nbLights = 0;
 }
@@ -52,7 +52,7 @@ Intersection* Scene::intersection(Ray& p_ray)
 	Intersection* intersection = NULL;
 	for (i = 0; i < this->nbObjects; i++) {
 		currentIntersection = this->objects[i]->intersection(p_ray);
-		if (currentIntersection && currentIntersection->t >= 0 && currentIntersection->t < tMin)
+		if (currentIntersection && currentIntersection->t >= 0 && currentIntersection->t < tMin && currentIntersection->t <= this->camera.far)
 		{
 			tMin = currentIntersection->t;
 			currentIntersection->objectId = i;

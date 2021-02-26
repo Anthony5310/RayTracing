@@ -9,7 +9,7 @@ int main(int argc, char** argv)
 	Scene scene(360, 4.0/3.0);
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Sphere(
+	/*scene.addObject(new Sphere(
 		Vector3D(0, 0.3,-1),
 		.25f,
 		Material(Color(41, 128, 185), 0.2, 0.2, 0.1, false)));
@@ -17,43 +17,33 @@ int main(int argc, char** argv)
 	scene.addObject(new Sphere(
 		Vector3D(0, -0.3,-1),
 		.25f, 
-		Material(Color(154, 28, 85), 0.2, 0.3, 0.2, false)));
-
+		Material(Color(154, 28, 85), 0.2, 0.3, 0.2, false)));*/
+	
 	//Sol
 	scene.addObject(new Plan(
-		Vector3D(0.01,-1,-1),
-		0,0,
-		Vector3D(0, 1, 0.5),
-		Material(Color(52, 73, 94), 0.2, 0.3, 0.2)
+		Vector3D(0.0f,-scene.camera.cam_height / 2,0.0f),
+		Vector3D(0.0f, 1.0f, 0.0f),
+		Material(Color(46, 204, 113), 0.2, 0.3, 0.2)
 	));
+	/*
 	//Plafond
 	scene.addObject(new Plan(
-		Vector3D(0.01, 1, -1),
-		0, 0,
-		Vector3D(0, 1, -0.5),
+		Vector3D(0.0f, scene.camera.cam_height/2, 0.0f),
+		Vector3D(0.0f, -1.0f, 0.0f),
 		Material(Color(52, 73, 94), 0.2, 0.3, 0.2)
-	));
-	//Fond
-	scene.addObject(new Plan(
-		Vector3D(0.01, -1, -10),
-		0, 0,
-		Vector3D(0, 0, 1),
-		Material(Color(26, 188, 156), 0.2, 0.3, 0.5)
 	));
 	//Mur Gauche
 	scene.addObject(new Plan(
-		Vector3D(-1, -1, -1),
-		0, 0,
-		Vector3D(1, 0, 0),
-		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
+		Vector3D(-scene.camera.cam_width / 2, 0.0f, 0.0f),
+		Vector3D(1.0f, 0.0f, 0.0f),
+		Material(Color(98, 52, 19), 0.2, 0.3, 0.2)
 	));
 	//Mur Droite
 	scene.addObject(new Plan(
-		Vector3D(1, 1, -1),
-		0, 0,
-		Vector3D(1, 0, 0),
+		Vector3D(scene.camera.cam_width / 2, 0.0f, 0.0f),
+		Vector3D(-1.0f, 0.0f, 0.0f),
 		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
-	));
+	));*/
 
 	scene.addLight(new Light(Vector3D(0.1, 0.1, 0), Color(255, 255, 255)));
 
