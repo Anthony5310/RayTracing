@@ -30,8 +30,8 @@ Intersection* Sphere::intersection(Ray& p_ray)
 	Vector3D dist = p_ray.pos - this->position;
 	Intersection* new_intersection = NULL;
 	//Calcul of discriminant (d), d = b²-4ac
-	//float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
-	float a = 1;
+	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
+	//float a = 1;
 	float b = 2.0 * dist.scalarProduct(p_ray.dir);
 	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;

@@ -20,6 +20,7 @@ public:
 	Vector3D operator+ (Vector3D p_vector);
 	Vector3D operator+ (float p_scalar);
 	Vector3D operator- (Vector3D p_vector);
+	Vector3D operator/ (float p_scalar);
 	//Produit scalaire
 	Vector3D operator* (Vector3D p_vector);
 	Vector3D operator* (float p_scalar);
@@ -28,6 +29,7 @@ public:
 	Vector3D operator^ (Vector3D p_vector);
 	//Vecteur reflected regarding normal
 	Vector3D reflect(Vector3D p_normal);
+	Color toColor(void);
 };
 
 #endif

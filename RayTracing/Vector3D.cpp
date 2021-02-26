@@ -67,6 +67,13 @@ Vector3D Vector3D::operator- (Vector3D p_vector) {
 		z - p_vector.z);
 }
 
+Vector3D Vector3D::operator/ (float p_scalar) {
+	return Vector3D(
+		x / p_scalar,
+		y / p_scalar,
+		z / p_scalar);
+}
+
 Vector3D Vector3D::operator* (Vector3D p_vector) {
 	return Vector3D(
 		p_vector.x * x, 
@@ -98,4 +105,10 @@ Vector3D Vector3D::operator^ (Vector3D p_vector) {
 
 Vector3D Vector3D::reflect(Vector3D p_normal) {
 	return (*this) - (p_normal * this->scalarProduct(p_normal) * 2);
+}
+
+Color Vector3D::toColor(void) {
+	Color color((unsigned char)x, (unsigned char)y, (unsigned char)z);
+	color.clamp();
+	return color;
 }

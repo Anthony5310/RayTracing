@@ -10,11 +10,11 @@ int main(int argc, char** argv)
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
 	scene.addObject(new Sphere(
-		Vector3D(0, 0.3,-1.1),
+		Vector3D(0, 0.3,-2),
 		.25f,
-		Material(Color(41, 128, 185), 0.1, 0.1, 0.1, false)));
+		Material(Color(41, 128, 185), 0.2, 0.3, 0.4, false)));
 
-	scene.addObject(new Sphere(
+	/*scene.addObject(new Sphere(
 		Vector3D(0, -0.3,-1),
 		.25f, 
 		Material(Color(154, 28, 85), 0.2, 0.3, 0.2, false)));
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
 		Vector3D(0.01, -1, -10),
 		0, 0,
 		Vector3D(0, 0, 1),
-		Material(Color(26, 188, 156), 0.2, 0.3, 0.2)
+		Material(Color(26, 188, 156), 0.2, 0.3, 0.5)
 	));
 	//Mur Gauche
 	scene.addObject(new Plan(
@@ -54,10 +54,11 @@ int main(int argc, char** argv)
 		0, 0,
 		Vector3D(1, 0, 0),
 		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
-	));
+	));*/
 
-	scene.addLight(new Light());
-	scene.addLight(new Light(Vector3D(-0.2, -0.2, 0), Color(255,255,255)));
+	scene.addLight(new Light(Vector3D(-0.4, 0.4, 0), Color(255, 255, 255)));
+	//scene.addLight(new Light(Vector3D(-0.2, -0.2, 0), Color(255,255,255)));
+
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
 	unsigned int height = scene.camera.img_height;
@@ -97,7 +98,7 @@ int main(int argc, char** argv)
 			FreeImage_SetPixelColor(image, i, height-j-1, &color);
 		}
 	}
-	FreeImage_Save(FIF_BMP, image, "out1.bmp");
+	FreeImage_Save(FIF_BMP, image, "out.bmp");
 	return EXIT_SUCCESS;
 }
 
