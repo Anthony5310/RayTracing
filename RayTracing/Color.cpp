@@ -40,15 +40,30 @@ void Color::clamp(void)
 }
 
 Color Color::operator*(float p_scalar) {
+	float rf, gf, bf;
+	rf = r * p_scalar;
+	gf = g * p_scalar;
+	bf = b * p_scalar;
+	rf = std::min(255.0f, std::max(rf, 0.0f));
+	gf = std::min(255.0f, std::max(gf, 0.0f));
+	bf = std::min(255.0f, std::max(bf, 0.0f));
 	return Color(
-		r * p_scalar,
-		g * p_scalar,
-		b * p_scalar);
+		rf,
+		gf,
+		bf);
 }
 
 Color Color::operator+(Color p_color) {
+	float rf, gf, bf;
+	rf = r + p_color.r;
+	gf = g + p_color.g;
+	bf = b + p_color.b;
+	rf = std::min(255.0f, std::max(rf, 0.0f));
+	gf = std::min(255.0f, std::max(gf, 0.0f));
+	bf = std::min(255.0f, std::max(bf, 0.0f));
 	return Color(
-		r + p_color.r,
-		g + p_color.g,
-		b + p_color.b);
+		rf,
+		gf,
+		bf);
 }
+

@@ -1,14 +1,11 @@
-﻿  main.cpp
-C:\git_workspace\RayTracing\RayTracing\main.cpp(9,27): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\git_workspace\RayTracing\RayTracing\main.cpp(13,21): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\git_workspace\RayTracing\RayTracing\main.cpp(15,27): warning C4309: 'argument' : troncation de valeur de constante
-C:\git_workspace\RayTracing\RayTracing\main.cpp(15,22): warning C4309: 'argument' : troncation de valeur de constante
-C:\git_workspace\RayTracing\RayTracing\main.cpp(15,53): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\git_workspace\RayTracing\RayTracing\main.cpp(59,48): warning C4305: 'argument' : troncation de 'double' à 'float'
-C:\git_workspace\RayTracing\RayTracing\main.cpp(59,67): warning C4309: 'argument' : troncation de valeur de constante
-C:\git_workspace\RayTracing\RayTracing\main.cpp(59,62): warning C4309: 'argument' : troncation de valeur de constante
-C:\git_workspace\RayTracing\RayTracing\main.cpp(59,57): warning C4309: 'argument' : troncation de valeur de constante
-C:\git_workspace\RayTracing\RayTracing\main.cpp(63,21): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
-C:\git_workspace\RayTracing\RayTracing\main.cpp(64,22): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
-C:\git_workspace\RayTracing\RayTracing\main.cpp(62,21): warning C4101: 'k' : variable locale non référencée
-  RayTracing.vcxproj -> C:\git_workspace\RayTracing\bin\RayTracing_d.exe
+﻿  Color.cpp
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(53,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(52,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(51,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(58,9): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(59,9): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(60,9): warning C4244: '=' : conversion de 'int' en 'float', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(67,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(66,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+D:\git_workspace\RayTracing\RayTracing\Color.cpp(65,3): warning C4244: 'argument' : conversion de 'float' en 'char', perte possible de données
+  RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe

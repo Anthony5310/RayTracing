@@ -8,7 +8,7 @@ Scene::Scene(void)
 
 Scene::Scene(float p_img_height, float p_format)
 {
-	camera = Camera(p_img_height, 1.5, p_format, 1.0, 0.3, 100.0, Vector3D(0, 0, -1));
+	camera = Camera(p_img_height, 1.5, p_format, 1.0, 0.3, 100.0, Vector3D(0, 0, 0));
 	this->nbObjects = 0;
 	this->nbLights = 0;
 }

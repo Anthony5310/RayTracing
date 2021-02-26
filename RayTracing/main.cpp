@@ -10,7 +10,7 @@ int main(int argc, char** argv)
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
 	scene.addObject(new Sphere(
-		Vector3D(0, 0.3,-2),
+		Vector3D(0, 0.3,-1),
 		.25f,
 		Material(Color(41, 128, 185), 0.2, 0.3, 0.4, false)));
 
@@ -57,7 +57,7 @@ int main(int argc, char** argv)
 	));*/
 
 	scene.addLight(new Light(Vector3D(-0.4, 0.4, 0), Color(255, 255, 255)));
-	//scene.addLight(new Light(Vector3D(-0.2, -0.2, 0), Color(255,255,255)));
+	scene.addLight(new Light(Vector3D(-0.2, -0.2, 2), Color(255,255,255)));
 
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
@@ -82,8 +82,6 @@ int main(int argc, char** argv)
 					pixel_color = scene.getPixelColor(*intersection);
 				}*/
 				pixel_color = scene.getPixelColor(*intersection);
-
-				pixel_color.clamp();
 				color.rgbRed = pixel_color.r;
 				color.rgbGreen = pixel_color.g;
 				color.rgbBlue = pixel_color.b;
