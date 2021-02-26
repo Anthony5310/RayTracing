@@ -1,4 +1,7 @@
-﻿  main.cpp
+﻿  Camera.cpp
+D:\git_workspace\RayTracing\RayTracing\Camera.cpp(12,12): warning C4305: '=' : troncation de 'double' à 'float'
+D:\git_workspace\RayTracing\RayTracing\Camera.cpp(14,20): warning C4305: '=' : troncation de 'double' à 'float'
+  main.cpp
 D:\git_workspace\RayTracing\RayTracing\main.cpp(9,27): warning C4305: 'argument' : troncation de 'double' à 'float'
 D:\git_workspace\RayTracing\RayTracing\main.cpp(13,23): warning C4305: 'argument' : troncation de 'double' à 'float'
 D:\git_workspace\RayTracing\RayTracing\main.cpp(15,27): warning C4309: 'argument' : troncation de valeur de constante
@@ -24,4 +27,5 @@ D:\git_workspace\RayTracing\RayTracing\main.cpp(56,46): warning C4305: 'argument
 D:\git_workspace\RayTracing\RayTracing\main.cpp(60,21): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
 D:\git_workspace\RayTracing\RayTracing\main.cpp(61,22): warning C4244: 'initialisation' : conversion de 'float' en 'unsigned int', perte possible de données
 D:\git_workspace\RayTracing\RayTracing\main.cpp(59,21): warning C4101: 'k' : variable locale non référencée
+  Génération de code en cours...
   RayTracing.vcxproj -> D:\git_workspace\RayTracing\bin\RayTracing_d.exe

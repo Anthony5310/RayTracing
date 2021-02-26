@@ -92,9 +92,7 @@ int main(int argc, char** argv)
 			FreeImage_SetPixelColor(image, i, height-j-1, &color);
 		}
 	}
-
 	FreeImage_Save(FIF_BMP, image, "out.bmp");
-
 	return EXIT_SUCCESS;
 }
 
