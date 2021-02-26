@@ -12,14 +12,13 @@ int main(int argc, char** argv)
 	scene.addObject(new Sphere(
 		Vector3D(0, 0.3,-1),
 		.25f,
-		Material(Color(41, 128, 185), 0.2, 0.3, 0.4, false)));
+		Material(Color(41, 128, 185), 0.2, 0.2, 0.1, false)));
 
-	/*scene.addObject(new Sphere(
+	scene.addObject(new Sphere(
 		Vector3D(0, -0.3,-1),
 		.25f, 
 		Material(Color(154, 28, 85), 0.2, 0.3, 0.2, false)));
-	
-	
+
 	//Sol
 	scene.addObject(new Plan(
 		Vector3D(0.01,-1,-1),
@@ -54,10 +53,10 @@ int main(int argc, char** argv)
 		0, 0,
 		Vector3D(1, 0, 0),
 		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
-	));*/
+	));
 
-	scene.addLight(new Light(Vector3D(-0.4, 0.4, 0), Color(255, 255, 255)));
-	scene.addLight(new Light(Vector3D(-0.2, -0.2, 2), Color(255,255,255)));
+	scene.addLight(new Light(Vector3D(0.1, 0.1, 0), Color(255, 255, 255)));
+
 
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
@@ -72,7 +71,6 @@ int main(int argc, char** argv)
 			Intersection* intersection = scene.intersection(scene.camera.ray);
 			if (intersection)
 			{
-				/*
 				if (scene.shadow(intersection)) 
 				{
 					pixel_color = Color(0, 0, 0);//Black
@@ -80,8 +78,7 @@ int main(int argc, char** argv)
 				else
 				{
 					pixel_color = scene.getPixelColor(*intersection);
-				}*/
-				pixel_color = scene.getPixelColor(*intersection);
+				}
 				color.rgbRed = pixel_color.r;
 				color.rgbGreen = pixel_color.g;
 				color.rgbBlue = pixel_color.b;
