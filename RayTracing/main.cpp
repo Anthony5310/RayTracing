@@ -9,17 +9,11 @@ int main(int argc, char** argv)
 	Scene scene(360, 4.0/3.0);
 	//Scene scene(1080, 16.0/9.0);
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
-	scene.addObject(new Triangle(
-		Vector3D(-1, -0.75, -2),
-		Vector3D(-1, 0.75, -2),
-		Vector3D(1, 0.75, -2),
-		Material(Color(158, 47, 56), 0.2, 0.3, 0.5)
-	));
 	scene.addObject(new Sphere(
 		Vector3D(0, 0.3,-1.1),
 		.25f,
-		Material(Color(41, 128, 185), 0.2, 0.3, 0.5, false)));
-	/*
+		Material(Color(41, 128, 185), 0.1, 0.1, 0.1, false)));
+
 	scene.addObject(new Sphere(
 		Vector3D(0, -0.3,-1),
 		.25f, 
@@ -60,8 +54,10 @@ int main(int argc, char** argv)
 		0, 0,
 		Vector3D(1, 0, 0),
 		Material(Color(52, 152, 219), 0.2, 0.3, 0.2)
-	));*/
+	));
+
 	scene.addLight(new Light());
+	scene.addLight(new Light(Vector3D(-0.2, -0.2, 0), Color(255,255,255)));
 	unsigned int i, j, k;
 	unsigned int width = scene.camera.img_width;
 	unsigned int height = scene.camera.img_height;
@@ -75,6 +71,7 @@ int main(int argc, char** argv)
 			Intersection* intersection = scene.intersection(scene.camera.ray);
 			if (intersection)
 			{
+				/*
 				if (scene.shadow(intersection)) 
 				{
 					pixel_color = Color(0, 0, 0);//Black
@@ -82,7 +79,9 @@ int main(int argc, char** argv)
 				else
 				{
 					pixel_color = scene.getPixelColor(*intersection);
-				}
+				}*/
+				pixel_color = scene.getPixelColor(*intersection);
+
 				pixel_color.clamp();
 				color.rgbRed = pixel_color.r;
 				color.rgbGreen = pixel_color.g;
@@ -98,7 +97,7 @@ int main(int argc, char** argv)
 			FreeImage_SetPixelColor(image, i, height-j-1, &color);
 		}
 	}
-	FreeImage_Save(FIF_BMP, image, "out.bmp");
+	FreeImage_Save(FIF_BMP, image, "out1.bmp");
 	return EXIT_SUCCESS;
 }
 

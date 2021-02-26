@@ -40,9 +40,10 @@ void Color::clamp(void)
 }
 
 Color Color::operator*(float p_scalar) {
-	return Color(r * p_scalar,
-	g * p_scalar,
-	b * p_scalar);
+	return Color(
+		r * p_scalar,
+		g * p_scalar,
+		b * p_scalar);
 }
 
 Color Color::operator+(Color p_color) {

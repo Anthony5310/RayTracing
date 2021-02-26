@@ -7,5 +7,6 @@ class Light : public Object
 public:
 	Color color;
 	Light();
+	Light(Vector3D p_position, Color p_color);
 };
 #endif // !_LIGHT_H_
