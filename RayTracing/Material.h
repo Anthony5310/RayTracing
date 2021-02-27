@@ -10,9 +10,10 @@ public:
 	float kAmbiant;
 	float kDiffus;
 	float kSpecular;
+	bool mirror;
 
 	Material(void);
-	Material(Color p_color, float p_kAmbiant, float p_kDiffus, float p_kSpecular);
+	Material(Color p_color, float p_kAmbiant, float p_kDiffus, float p_kSpecular, bool p_mirror=false);
 
 };
 #endif // !_MATERIAL_H_

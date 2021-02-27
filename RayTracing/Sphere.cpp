@@ -5,7 +5,6 @@ Sphere::Sphere(void):
 {
 	position = Vector3D(0.0f, 0.0f, 0.0f);
 	radius = 1.0f;
-	material = Material(); //Color white by default
 }
 
 Sphere::Sphere(Vector3D p_position, float p_radius, Material p_material):
@@ -26,20 +25,21 @@ Sphere::~Sphere(void) {
 	delete this;
 }
 
-float Sphere::intersection(Ray& p_ray)
+Intersection* Sphere::intersection(Ray& p_ray)
 {
 	Vector3D dist = p_ray.pos - this->position;
+	Intersection* new_intersection = NULL;
 	//Calcul of discriminant (d), d = b²-4ac
-	//float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
-	float a = 1;
+	float a = p_ray.dir.scalarProduct(p_ray.dir); //Scalar product of ray direction vector (dir) -> dir.dir or 
+	//float a = 1;
 	float b = 2.0 * dist.scalarProduct(p_ray.dir);
 	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;
 	float t = -1.0f;
-	if (d == 0) { //Only one intersection
+	if (d == 0) { //Une seule intersection
 		t = -b / 2 * a;
 	}
-	else if (d > 0) { //Two intersections, ray passes through the sphere
+	else if (d > 0) { //2 intersections, le rayon traverse la sphère
 		float dSqrt = sqrt(d);
 		float t1 = (-b - dSqrt) / 2 * a;
 		float t2 = (-b + dSqrt) / 2 * a;
@@ -50,39 +50,12 @@ float Sphere::intersection(Ray& p_ray)
 			t = t2;
 		}
 	}
-	return t;
-}
-
-Color Sphere::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Intersection& p_intersection)
-{
-	float lightDist = (p_lights[0]->position - p_intersection.position).norm();
-	//ambiant
-	Vector3D ambiant = p_lights[0]->color * 0.2;
-
-	//diffuse
-	Vector3D L = p_lights[0]->position - p_intersection.position;
-	L.normalize();
-	float Id = p_intersection.normal.scalarProduct(L);
-	if (Id < 0) {
-		Id = 0.0f;
-	}
-	Vector3D diffuse = p_lights[0]->color * Id;
-
-	//specular
-	/*Vector3D V = p_intersection.position - p_ray.pos;
-	V.normalize();
-	Vector3D H = (V + L).getNormalize();
-	float Is = p_intersection.normal.scalarProduct(H);
-	if (Is < 0) {
-		Is = 0.0f;
-	}
-	else {
-		Is = pow(Is, 32);
-	}
-	Vector3D specular = p_lights[0]->color *  Is;*/
-	
-	Vector3D totalLight = (ambiant + diffuse) * this->material.color;
-	return Color((char)totalLight.x, (char)totalLight.y, (char)totalLight.z);
+	if (t >= 0) {
+		Vector3D intersection_pos = p_ray.pos + p_ray.dir * t;
+		Vector3D intersection_normal = (intersection_pos - this->position).getNormalize();
+		new_intersection = new Intersection(intersection_pos, intersection_normal, 0, t);
+	}	
+	return new_intersection;
 }
 
 Color Sphere::getColor(void)

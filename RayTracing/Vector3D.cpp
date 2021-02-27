@@ -67,6 +67,13 @@ Vector3D Vector3D::operator- (Vector3D p_vector) {
 		z - p_vector.z);
 }
 
+Vector3D Vector3D::operator/ (float p_scalar) {
+	return Vector3D(
+		x / p_scalar,
+		y / p_scalar,
+		z / p_scalar);
+}
+
 Vector3D Vector3D::operator* (Vector3D p_vector) {
 	return Vector3D(
 		p_vector.x * x, 
@@ -94,4 +101,8 @@ Vector3D Vector3D::operator^ (Vector3D p_vector) {
 		p_vector.z * y - p_vector.y * z,
 		p_vector.x * z - p_vector.z * x,
 		p_vector.y * x - p_vector.x * y);
+}
+
+Vector3D Vector3D::reflect(Vector3D p_normal) {
+	return (*this) - (p_normal * this->scalarProduct(p_normal) * 2);
 }

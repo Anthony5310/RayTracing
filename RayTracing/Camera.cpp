@@ -37,11 +37,13 @@ void Camera::setUpLeftCorner(void) {
 }
 
 void Camera::traceRay(unsigned int i, unsigned int j) {
+	//Calcul des directions
 	Vector3D horizontalDir(this->cam_width, 0, 0);
 	Vector3D verticalDir(0, -this->cam_height, 0);
+	//Calcul de l'offset horizontal et vertical
 	float u = (float)i / (img_width - 1);
 	float v = (float)j / (img_height - 1);
 	this->ray.setPos(this->position);
+	//Décalage de la position via l'offset et la direction selon le coin supérieur gauche
 	this->ray.setDir((this->upLeftCorner + (horizontalDir * u) + (verticalDir * v) - this->position).getNormalize());
-	//this->ray.display();
 }
