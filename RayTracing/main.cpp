@@ -8,9 +8,15 @@ int main(int argc, char** argv)
 	RGBQUAD color;
 	FIBITMAP* image;
 	
-	//Camera camera(360, 1.5f, 4.0f / 3.0f, 1.0f, 0.1f, 10.0f, Vector3D(0, 0, 0));
-	//Camera camera(1080, 1.5f, 16.0f / 9.0f, 1.0f, 0.3f, 10.0f, Vector3D(0, 0, 0));
-	Scene scene(360, 4.0f/3.0f);
+	/*-----Creation de la scene avec la camera-----*/
+	/*Creation de la camera et ajout dans la scène*/
+	Camera camera(360, 1.5f, 4.0f / 3.0f, 1.0f, 0.1f, 10.0f, Vector3D(0, 0, 0)); //Image en 480 x 360
+	//Camera camera(1080, 1.5f, 16.0f / 9.0f, 1.0f, 0.3f, 10.0f, Vector3D(0, 0, 0)); //Image en 1920 x 1080
+	Scene scene(camera);
+	/*Ou création via une camera par défault*/
+	//Scene scene(360, 4.0f/3.0f);
+	/*---------------------------------------------*/
+
 	image = FreeImage_Allocate((int)scene.camera.img_width, (int)scene.camera.img_height, 32);
 	/** Ajout d'objets dans la scène**/
 	//Sphère (de type miroir)
