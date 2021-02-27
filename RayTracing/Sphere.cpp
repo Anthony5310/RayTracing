@@ -36,10 +36,10 @@ Intersection* Sphere::intersection(Ray& p_ray)
 	float c = dist.scalarProduct(dist) - (this->radius * this->radius);
 	float d = b * b - 4 * a * c;
 	float t = -1.0f;
-	if (d == 0) { //Only one intersection
+	if (d == 0) { //Une seule intersection
 		t = -b / 2 * a;
 	}
-	else if (d > 0) { //Two intersections, ray passes through the sphere
+	else if (d > 0) { //2 intersections, le rayon traverse la sphère
 		float dSqrt = sqrt(d);
 		float t1 = (-b - dSqrt) / 2 * a;
 		float t2 = (-b + dSqrt) / 2 * a;

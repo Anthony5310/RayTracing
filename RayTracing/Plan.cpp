@@ -16,6 +16,7 @@ Intersection* Plan::intersection(Ray& p_ray) {
 	float ndotrd = p_ray.dir.scalarProduct(this->normal); //ndotd <=> n.p_ray[dir]
 	float t = -1;
 	Intersection* new_intersection = NULL;
+	//Si ndotrd = 0, le rayon et le plan sont parallèles (il n'y aura donc pas d'intersection)
 	if (ndotrd != 0.0f )
 	{
 		t = diff.scalarProduct(this->normal) / ndotrd;

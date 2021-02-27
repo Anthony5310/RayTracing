@@ -29,12 +29,13 @@ public:
 
 	Scene(void);
 	Scene(float p_img_height, float p_format);
+	Scene(Camera p_camera);
 	~Scene(void);
 	void information(void);
 	void addObject(PrimitiveObject* p_object);
 	void addLight(Light* p_light);
 	Intersection* intersection(Ray& p_ray);
-	bool shadow(Intersection* p_intersection);
+	std::vector<Light*> shadow(Intersection& p_intersection);
 	Color getPixelColor(Intersection& p_intersection, int nbReflect=0);
 };
 

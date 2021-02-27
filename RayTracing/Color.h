@@ -10,7 +10,6 @@ public:
 
 	Color(void);//Default: white
 	Color(char p_r, char p_g, char p_b);
-	void clamp(void);
 	Color operator*(float p_scalar);
 	Color operator+(Color p_color);
 };

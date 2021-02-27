@@ -20,15 +20,13 @@ Color PrimitiveObject::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Int
 {
 	unsigned int i;
 	unsigned int nbLights = p_lights.size();
+	int n = 16; //Puissance pour la composante spéculaire
 	/*** ambiant ***/
 	Color ambiant = this->material.color;
 	Color diffuse = Color(0, 0, 0);
 	Color specular = Color(0, 0, 0);
-	for (i = 0; i < nbLights; i++) {
+	for (i = 0; i < nbLights; i++) { //Pour chaque lumière
 		float lightDist = (p_lights[i]->position - p_intersection.position).norm(); //Distance entre le point d'intersection et la lumière
-		if (lightDist == 0) {
-			printf("null !!!");
-		}
 		/*** diffuse ***/
 		Vector3D L = (p_lights[i]->position - p_intersection.position).getNormalize();
 		//Vecteur normalisé du point d'intersection vers la lumière
@@ -41,16 +39,12 @@ Color PrimitiveObject::lightImpact(Ray& p_ray, std::vector<Light*> p_lights, Int
 		Vector3D V = (p_ray.pos - p_intersection.position).getNormalize();
 		Vector3D H = (V+L).getNormalize();// V+L / ||V+L||
 		float NH = p_intersection.normal.scalarProduct(H);// N.H
-		NH = pow(NH, 16);//max(0, NH)
+		
+		NH = pow(NH, n);//max(0, NH)
 		if (NH < 0) NH = 0.0f; 
 		Color deltaSpecular = (p_lights[i]->color * NH * (1.0f / powf(lightDist, 2.0f)));
-		if (deltaSpecular.r > 255 || deltaSpecular.g > 255 || deltaSpecular.b > 255) {
-			printf("sup");
-		}
 		specular = specular + deltaSpecular;
-		diffuse.clamp();
 	}
-	
 	Color pixelColor = (ambiant * this->material.kAmbiant + diffuse * this->material.kDiffus + specular * this->material.kSpecular);
 	return pixelColor;
 }

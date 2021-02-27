@@ -1,2 +1,4 @@
-﻿  Plan.cpp
+﻿  Scene.cpp
+C:\git_workspace\RayTracing\RayTracing\Scene.cpp(83,72): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\git_workspace\RayTracing\RayTracing\Scene.cpp(107,72): warning C4305: 'argument' : troncation de 'double' à 'float'
   RayTracing.vcxproj -> C:\git_workspace\RayTracing\bin\RayTracing_d.exe

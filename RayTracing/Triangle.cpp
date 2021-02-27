@@ -47,7 +47,7 @@ Intersection* Triangle::intersection(Ray& p_ray) {
 
 	//Si nous sommes ici c'est que le point d'intersection se trouve bien dans le triangle
 	//On peut donc créer un objet intersection
-	Intersection* newIntersection = new Intersection(p, normal, 0, t);
+	Intersection* newIntersection = new Intersection(p, normal*-1, 0, t);
 	return newIntersection;
 }
 

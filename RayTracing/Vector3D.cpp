@@ -106,9 +106,3 @@ Vector3D Vector3D::operator^ (Vector3D p_vector) {
 Vector3D Vector3D::reflect(Vector3D p_normal) {
 	return (*this) - (p_normal * this->scalarProduct(p_normal) * 2);
 }
-
-Color Vector3D::toColor(void) {
-	Color color((unsigned char)x, (unsigned char)y, (unsigned char)z);
-	color.clamp();
-	return color;
-}
